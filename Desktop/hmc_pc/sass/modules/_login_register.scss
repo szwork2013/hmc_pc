@@ -1,0 +1,155 @@
+@import 'common/variables';
+
+.loginRegisterWrap{
+	position:fixed;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	background-color:rgba(0,0,0,0.5);
+}
+.loginRegister{
+	position:relative;
+	width:970px;
+	height:590px;
+	margin:0 auto;
+	background-color:$white;
+	margin-top:30px;
+	.close{
+		width:25px;
+		height:25px;
+		background-image: url(/images/hmc_sprite.png);
+		background-position:-423px -58px;
+		position:absolute;
+		border-radius:50%;
+		z-index:20;
+		right:-10px;
+		top:-10px;
+	}
+	.loginPic{
+		display: inline-block;
+		vertical-align: top;
+	}
+	.loginContent{
+		display:inline-block;
+		vertical-align:top;
+		width:565px;
+		height:590px;
+		position:relative;
+		.telephoneWrap,.verifyCodeWrap,.nameWrap{
+			position: relative;
+		}
+		p{
+			font-size:17px;
+			font-weight: bold;
+			text-align: center;
+			color:$gray;
+			margin:130px auto 70px auto;
+		}
+		input,button{
+			width:300px;
+			height:50px;
+			line-height:50px;
+			margin:0 auto 15px auto;
+			font-size:14px;
+			display:block;
+		}
+		input{
+			border:1px solid $line_light_gray;
+			text-indent: 20px;
+		}
+		button{
+			background-color:$blue;
+			color:$white;
+			text-align:center;
+			font-weight:bold;
+		}
+		img{
+			display:block;
+			margin:70px auto 40px auto;
+
+		}
+		h3,h4{
+			text-align:center;
+			color:$gray;
+		}
+		h3{
+			font-weight:bold;
+			font-size:18px;
+			margin-bottom: 10px;
+		}
+		h4{
+			margin-bottom:50px;
+		}
+		.telephone{
+			color:#95969a;
+		}
+		.login{
+			display:none;
+		}
+		i{
+			font-style:italic;
+			text-align:center;
+			display:block;
+			position:absolute;
+			bottom:10px;
+			left:50%;
+			margin-left:-70px;
+		}
+		.getVerifyCode{
+			width:100px;
+			height:40px;
+			line-height:40px;
+			position:absolute;
+			right:140px;
+			top:6px;
+		}
+		.error{
+			display:inline-block;
+			position:absolute;
+			color:red;
+			width:100px;
+			right:20px;
+			top:18px;
+		}
+	}
+	.carParityLogin{
+		width:970px;
+		height:432px;
+		p{
+			margin-bottom:30px;
+			margin-top:70px;
+		}
+		.getVerifyCode{
+			right:340px;
+		}
+		.error{
+			right:220px;
+		}
+	}
+	.three{
+		width:630px;
+		margin:0 auto;
+		padding-top:40px;
+		li{
+		display:inline-block;
+		width:200px;
+		position: relative;
+			.shop{
+				width:200px;
+				height:115px;
+			}
+			.head{
+				width:80px;
+				height:80px;
+				border-radius:50%;
+				margin-top:-30px;
+				position: absolute;
+				left:50%;
+				margin-left:-46px;
+				border:6px solid #fff;
+			}
+		}
+	}
+}
+

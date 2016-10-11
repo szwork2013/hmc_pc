@@ -1,0 +1,223 @@
+.popup{
+  background:#000;
+  opacity:0.8;
+  filter:alpha(opacity=80);
+  width:100%;
+  height:100%;
+  position:fixed;
+  left:0;
+  top:0;
+  display:none;
+  z-index:999;
+  &.active{
+    display:block;
+  }
+}
+.purchase_list{
+  width:970px;
+  margin:0 auto;
+}
+.popup_buyCar{
+  height:590px;
+  width:970px;
+  position: fixed;
+  top:30px;
+  left:50%;
+  margin-left:-485px;
+  display:none;
+  background:#fff;
+  z-index:1000;
+  &.active{
+    display:block;
+  }
+  .popup_close{
+    width: 24px;
+    height: 24px;
+    background: url(../images/hmc_sprite.png) no-repeat -423px -58px;
+    display: block;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+  }
+}
+.popup_buy_info{
+  padding:50px 135px 0;
+  h4{
+    font-size:18px;
+    color:#363636;
+    line-height:36px;
+    height:36px;
+    font-weight:bold;
+    margin-bottom:43px;
+  }
+  input{
+    margin-top:10px;
+    width:274px;
+    padding:18px 0 18px 22px;
+    height:14px;
+    border:2px solid #e7e9ea;
+    display:block;
+    color:#363636;
+  }
+  .popup_buy_submit{
+    width:300px;
+    height:54px;
+    background:#09afec;
+    line-height:54px;
+    text-align:center;
+    font-size:16px;
+    color:#fff;
+    margin-top:36px;
+  }
+}
+.popup_buyList{
+  position:relative;
+  li{
+    width:276px;
+    height:50px;
+    line-height:50px;
+    border:2px solid #e7e9ea;
+    padding-left:20px;
+    font-size:14px;
+    position:relative;
+    margin-bottom:10px;
+    &.active:after{
+      width: 12px;
+      height: 8px;
+      display: block;
+      float: left;
+      background: url(../images/hmc_sprite.png) no-repeat -16px -18px;
+      position: absolute;
+      top: 22px;
+      right: 8px;
+      z-index: 10;
+    }
+    &.last{
+      margin-bottom:0;
+    }
+    &:after{
+      width: 12px;
+      height: 8px;
+      display: block;
+      background: url(../images/hmc_sprite.png) no-repeat -58px -18px;
+      position: absolute;
+      content:'';
+      top: 22px;
+      right: 8px;
+      z-index: 10;
+    }
+    a{
+      color:#363636;
+    }
+  }
+}
+.attention_message {
+  background: rgba(255,255,255,0);
+  width: 250px;
+  position: fixed;
+  top:50%;
+  left:50%;
+  margin-left:-125px;
+  z-index: 10000;
+  .message_box {
+    background: rgba(0,0,0,0.7);
+    position: relative;
+    border-radius: 4px;
+    padding: 10px 0;
+    line-height: 30px;
+    font-size: 16px;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    min-height: 30px;
+    top: 30%;
+  }
+}
+.popup_brandList{
+  background:#fff;
+  position:absolute;
+  left:-2px;
+  top:50px;
+  max-height:408px;
+  width:300px;
+  overflow-y:auto;
+  padding-top:10px;
+  z-index:100;
+  border:2px solid #e7e9ea;
+  display:none;
+  &.active{
+    display:block;
+  }
+}
+.popup_brandMenu{
+  overflow-y:auto;
+  dd,dt{
+    line-height:30px;
+    height:30px;
+    padding-left:18px;
+    a{
+      float:left;
+    }
+    &:hover{
+      background:#f5f5f5;
+    }
+  }
+  dd{
+    padding-left:30px;
+  }
+  .brand_spell{
+    float:left;
+    width:12px;
+    height:30px;
+    line-height:30px;
+  }
+}
+.popup_buySuccess{
+  height:590px;
+  width:970px;
+  position: fixed;
+  top:30px;
+  left:50%;
+  margin-left:-485px;
+  display:none;
+  background:#fff;
+  z-index:101;
+  &.active{
+    display:block;
+  }
+  .popup_close{
+    width: 24px;
+    height: 24px;
+    background: url(../images/hmc_sprite.png) no-repeat -423px -58px;
+    display: block;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+  }
+}
+.popup_buySuccess_des{
+  padding:114px 130px 0 130px;
+  text-align:center;
+  color:#363636;
+  img{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+  }
+  h4{
+    font-size:18px;
+    font-weight:bold;
+    margin-top:28px;
+    margin-bottom:10px;
+  }
+  .popup_success_submit{
+    width:300px;
+    height:54px;
+    background:#09afec;
+    line-height:54px;
+    text-align:center;
+    font-size:16px;
+    color:#fff;
+    margin-top:85px;
+  }
+}

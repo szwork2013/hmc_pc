@@ -1,0 +1,25 @@
+.car_config_container{
+  float:left;
+  border:1px solid $line_gray;
+  box-sizing:border-box;
+  ul{
+    width:166px;
+    float:left;
+    border-right:1px solid $line_gray;
+    li{
+      height:40px;
+      line-height:50px;
+      text-align:center;
+      &.active{
+        height:50px;
+        line-height:50px;
+        color:$white;
+        background:$black;
+      }
+    }
+  }
+  .car_config_table{
+    width:1001px;
+    float:right;
+  }
+}

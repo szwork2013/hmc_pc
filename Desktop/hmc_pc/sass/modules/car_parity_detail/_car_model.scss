@@ -1,0 +1,111 @@
+.car_model_detail{
+  table{
+    width:$wrap_width;
+    padding:0 20px;
+    border-bottom:1px solid $line_gray;
+    &.first{
+      thead{
+        tr{
+          background:$gray;
+        }
+      }
+    }
+    div{
+      padding:0 14px 0 20px;
+    }
+    thead{
+      tr{
+        height:30px;
+        background:$line_dark_gray;
+        color:$white;
+      }
+      th{
+        text-align:left;
+        font-weight:normal;
+        font-size:14px;
+      }
+    }
+    tbody{
+      tr{
+        height:70px;
+        border-left:1px solid $line_gray;
+        border-right:1px solid $line_gray;
+        &.even{
+          background:$bg_light_blue;
+        }
+      }
+      td{
+        font-size:12px;
+        padding-right:6px;
+        h3{
+          font-size:14px;
+          color:$gray;
+          padding-bottom:4px;
+        }
+        h4{
+          font-size:12px;
+          em, strong{
+            box-sizing:border-box;
+            display:inline-block;
+            color:$white;
+            width:55px;
+            height:16px;
+            line-height:15px;
+            text-align:center;
+            border-radius:2px;
+            background:$green;
+          }
+          em{
+            margin-right:5px;
+            padding-left:10px;
+            background:$green url('/images/car_parity_detail/light.png') no-repeat 6px center;
+          }
+          strong{
+            background:$line_dark_gray;
+            margin-left:5px;
+            &.active{
+              background:$black;
+            }
+          }
+        }
+        b, i{
+          display:inline-block;
+          height:14px;
+        }
+        b{
+          width:70px;
+          background:$bg_light_gray;
+        }
+        i{
+          background:$line_dark_gray;
+        }
+        button, a{
+          box-sizing:border-box;
+          font-size:14px;
+          display:inline-block;
+          width:82px;
+          height:24px;
+          line-height:20px;
+          text-align:center;
+          cursor:pointer;
+        }
+        button{
+          background:$blue;
+          border:2px solid $blue;
+          color:$white;
+          margin-right:10px;
+        }
+        a{
+          color:$blue;
+          border:2px solid $blue;
+        }
+        span{
+          color:$blue;
+          font-weight:bold;
+          margin-right:16px;
+          cursor:pointer;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+<div class="home-brand-des fl">
+    <%if(carList){%><img src="<%-carList.brandMap.brandLogo%>"/><%}%>
+    <div class="home-brand-txt">
+        <ul class="carType_menu">
+            <%if(carList){%>
+                <%var list=carList.carTypeList;for(var i=0;i<list.length;i++){%>
+                    <li <%if(i==0){%>class="active"<%}%>><a href="javascript:;"><%-list[i].brandName%></a></li>
+                <%}%>
+            <%}%>
+        </ul>
+    </div>
+</div>
+<div class="home-brand-img fl">
+    <%if(carList){%>
+        <%var list=carList.carTypeList;for(var i=0;i<list.length;i++){%>
+            <ul class="home-brand-pic" id="typeList<%-i+1%>">
+                <%var typeList=list[i].typeList;for(var m=0;m<typeList.length;m++){%>
+                    <li>
+                        <a href="/car_parity_detail/<%-typeList[m].typeId%>">
+                            <img src="<%-typeList[m].tpicPath%>"/>
+                            <span><%-typeList[m].typeName%></span>
+                        </a>
+                    </li>
+                <%}%>
+            </ul>
+        <%}%>
+    <%}%>
+</div>

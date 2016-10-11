@@ -1,0 +1,58 @@
+<% if(myFavoriteList[i].isAvailable) { %>
+  <div class="my_favorite_module clearfix">
+    <div class="car_image fl">
+      <p class="car_discount"><%- myFavoriteList[i].discount %> 折</p>
+      <img width="200" src="<%- myFavoriteList[i].carImageLink %>">
+    </div>
+    <div class="car_description fl">
+      <h4><%- myFavoriteList[i].carName %></h4>
+      <h5><%- myFavoriteList[i].carModelInfo %></h5>
+      <ul class="sale_type_tags">
+        <% for(var j = 0; j < myFavoriteList[i].carTypeTag.length; j++) { %>
+          <% if(j < myFavoriteList[i].carTypeTag.length - 1){ %>
+            <li><%- myFavoriteList[i].carTypeTag[j] %> |</li>
+          <% }else{ %>
+            <li><%- myFavoriteList[i].carTypeTag[j] %></li>
+          <% } %>
+        <% } %>
+      </ul>
+    </div>
+    <div class="car_price fl">
+      <div class="price_info clearfix">
+        <p class="hmc_price fr"><%- myFavoriteList[i].msrp %>万</p>
+        <% if(myFavoriteList[i].isDirectSale){ %>
+          <h6 class="direct_sale_label fr">好买车自营</h6>
+        <% } %>
+      </div>
+      <div class="discount_info">
+        <span class="dicount fr">↓让利：2.00万</span>
+        <span class="msrp fr">官方指导价：36.90万</span>
+      </div>
+    </div>
+    <div class="close_button">
+      <button class="">close</button>
+    </div>
+  </div>
+<% }else{ %>
+  <div class="my_favorite_module not_available clearfix">
+    <div class="car_image fl">
+      <img width="200" src="<%- myFavoriteList[i].carImageLink %>">
+    </div>
+    <div class="car_description fl">
+      <h4><%- myFavoriteList[i].carName %></h4>
+      <h5><%- myFavoriteList[i].carModelInfo %></h5>
+      <ul class="sale_type_tags">
+        <% for(var j = 0; j < myFavoriteList[i].carTypeTag.length; j++) { %>
+          <% if(j < myFavoriteList[i].carTypeTag.length - 1){ %>
+            <li><%- myFavoriteList[i].carTypeTag[j] %> |</li>
+          <% }else{ %>
+            <li><%- myFavoriteList[i].carTypeTag[j] %></li>
+          <% } %>
+        <% } %>
+      </ul>
+    </div>
+    <div class="car_price fl">
+      <div class="status">已失效</div>
+    </div>
+  </div>
+<% } %>

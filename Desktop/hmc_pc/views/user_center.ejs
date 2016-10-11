@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>好买车</title>
+    <link href="/style/user_center.css" rel="stylesheet" />
+    <script data-main="/js/user_center" src="/js/lib/require.js"></script>
+  </head>
+  <body>
+    <%include common/common_header.ejs%>
+    <div class="user_center">
+      <div class="ad_banner"></div>
+      <div class="content clearfix">
+        <div class="menu fl">
+          <%include ./modules/user_center_side_menus.ejs%>
+        </div>
+        <div class="detail fl">
+          <% /* my_info page */ %>
+          <% if(currentMenu == 'my_info'){ %>
+            <%include ./modules/user_center_main_my_info.ejs%>
+          <% } %>
+
+          <% /* my_subscription page */ %>
+          <% if(currentMenu == 'my_subscription'){ %>
+            <%include ./modules/user_center_main_my_subscription.ejs%>
+          <% } %>
+
+          <% /* my_inquire_list page */ %>
+          <% if(currentMenu == 'my_inquire_list'){ %>
+            <%include ./modules/user_center_main_my_inquire_list.ejs%>
+          <% } %>
+
+          <% /* my_direct_sale_list */ %>
+          <% if(currentMenu == 'my_direct_sale_list'){ %>
+            <%include ./modules/my_direct_sale_list.ejs%>
+          <% } %>
+
+          <% /* my_favorite */ %>
+          <% if(currentMenu == 'my_favorite'){ %>
+            <%include ./modules/user_center/my_favorite_wrapper.ejs%>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <%include common/common_footer.ejs%>
+  </body>
+</html>

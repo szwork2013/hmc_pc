@@ -1,0 +1,61 @@
+.header_wrap{
+  background:$black;
+}
+#header{
+  height:42px;
+  line-height:42px;
+  color:$white;
+  position:relative;
+  @include width_align_center;
+  img,div,input{
+  	display: inline-block;
+  	vertical-align: top;
+  }
+  div,input{
+  	position:absolute;
+  }
+  .logo{
+  	margin-top:3px;
+  }
+  select{
+  	background-color:$black;
+  	border:none;
+  	color:white;
+  	font-size:12px;
+  	width:50px;
+  	height:20px;
+  	line-height:20px;
+  	margin-left:40px;
+  }
+  .searchBox{
+  	width:215px;
+  	height:30px;
+  	background-color:#333;
+  	border-radius:20px;
+  	right:62px;
+  	top:5px;
+  	text-indent:15px;
+  }
+  .search{
+    position:absolute;
+    right:70px;
+    top:12px;
+    cursor:pointer;
+  }
+  .car{
+  	width:25px;
+  	height:20px;
+  	background:url(/images/hmc_sprite.png);
+  	background-position:-149px -62px;
+  	right:30px;
+	top:10px;
+  }
+  .person{
+  	width:16px;
+  	height:20px;
+  	background:url(/images/hmc_sprite.png);
+  	background-position:-98px -62px;
+  	right:0;
+  	top:10px;
+  }
+}

@@ -1,0 +1,401 @@
+@import "common/reset";
+@import "common/variables";
+@import "common/footer";
+.user_center {
+  background: #f6f6f6;
+  padding-bottom: 50px;
+  min-width: 1170px;
+  .my_favorite_module {
+    width: 990px;
+    height: 150px;
+    background: white;
+    .car_image {
+      width: 220px;
+      margin: 10px;
+      position: relative;
+      .car_discount {
+        width: 55px;
+        height: 55px;
+        line-height: 55px;
+        text-align: center;
+        font-size: 16px;
+        color: white;
+        background: $blue;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+    .car_description {
+      width: 400px;
+      margin-top: 40px;
+      h4 {
+        font-size: 14px;
+        font-weight: bold;
+      }
+      h5 {
+
+      }
+      .sale_type_tags {
+        margin-top: 20px;
+        font-weight: bold;
+        li {
+          display: inline-block;
+        }
+      }
+    }
+    .car_price {
+      width: 260px;
+      margin-top: 45px;
+      .price_info {
+        .direct_sale_label {
+          color: white;
+          display: inline-block;
+          border-radius: 2px;
+          height: 18px;
+          line-height: 18px;
+          padding: 0 15px;
+          background: #727272;
+          margin: 6px 5px 0 0;
+        }
+        .hmc_price {
+          font-size: 22px;
+          font-weight: bold;
+          color: $blue;
+        }
+      }
+      .discount_info {
+        margin-top: 5px;
+        .msrp {
+          text-decoration: line-through;
+          margin-right: 10px;
+        }
+      }
+    }
+    &.not_available {
+      $not_available_opacity: 0.5;
+      .car_image {
+        opacity: $not_available_opacity;
+      }
+      .car_description {
+        .sale_type_tags {
+          opacity: $not_available_opacity;
+        }
+      }
+      .car_price {
+        .status {
+          font-size: 22px;
+          text-align: right;
+          font-weight: bold;
+          opacity: $not_available_opacity;
+        }
+      }
+    }
+  }
+  .direct_sale_module {
+    background: white;
+    .sub_info {
+      height: 30px;
+      line-height: 30px;
+      border-bottom: 1px solid $line_gray;
+      .order_number {
+        width: 400px;
+        text-align: center;
+      }
+      .order_type , .order_date {
+        padding: 0 10px;
+      }
+    }
+    .sale_info {
+      border-bottom: 1px solid $line_gray;
+      .car_image {
+        margin: 20px;
+      }
+      .car_description {
+        width: 360px;
+        padding-right: 60px;
+        h4 {
+          font-size: 16px;
+          font-weight: bold;
+          margin: 30px 0 20px;
+        }
+      }
+      .shop_info {
+        width: 370px;
+        text-align: center;
+        h4 {
+          font-size: 16px;
+          margin-top: 10px;
+        }
+        .shop_image {
+          margin-top: 20px;
+        }
+      }
+    }
+    .deal_buttons {
+      height: 68px;
+      .cancel_order_button {
+        width: 90px;
+        height: 42px;
+        color: white;
+        background: #363636;
+        margin: 10px 52px 0 0;
+        cursor: pointer;
+      }
+      .order_detail_link {
+        height: 42px;
+        width: 170px;
+        text-align: center;
+        background: $blue;
+        color: white;
+        line-height: 42px;
+        font-size: 16px;
+        margin: 10px 10px 0 0 ;
+      }
+      .show_pay_invoice {
+        margin: 20px 10px 0;
+        background: none;
+        display: block;
+        color: $blue;
+        cursor: pointer;
+      }
+    }
+  }
+  .subscription_module {
+    width: 990px;
+    height: 150px;
+    background: white;
+    .car_description {
+      h4 {
+        margin-top: 35px;
+        font-size: 14px;
+      }
+      h5 {
+        margin-top: 5px;
+      }
+      .sub_info {
+        margin-top: 15px;
+      }
+    }
+    .other_buttons {
+      width: 270px;
+      line-height: 150px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: #c2c2c2;
+    }
+    &.not_available {
+      .car_description {
+        width: 470px;
+        color: #c2c2c2;
+      }
+    }
+  }
+  .inquire_module {
+    background: white;
+    height: 254px;
+    .sub_info {
+      height: 30px;
+      line-height: 30px;
+      border-bottom: 1px solid $line_gray;
+      .order_number {
+        width: 400px;
+        text-align: center;
+      }
+      .order_type , .order_date {
+        padding: 0 10px;
+      }
+    }
+    .detail_info {
+      .car_image {
+        margin:20px;
+      }
+      .car_description {
+        width: 340px;
+        height: 224px;
+        border-right: 1px solid $line_gray;
+        padding-right: 20px;
+        h2 {
+          font-size: 16px;
+          font-weight: bold;
+          margin: 30px 0;
+        }
+      }
+      .inquire_status {
+        width: 410px;
+        text-align: center;
+        .main_status_text {
+          margin-top: 30px;
+          font-size: 16px;
+          font-weight: bold;
+        }
+        .main_status_desc {
+          margin-top: 5px;
+        }
+        .check_inquire_link {
+          margin-top: 22px;
+          a {
+            display: block;
+            width: 260px;
+            height: 42px;
+            line-height: 42px;
+            background: $blue;
+            color: white;
+            font-size: 16px;
+            margin: 0 auto;
+          }
+        }
+        .status_list {
+          margin-top: 10px;
+          color: white;
+          li {
+            display: inline-block;
+            position: relative;
+            text-align: center;
+            .status_icon {
+              width: 20px;
+              height: 20px;
+              top: 50%;
+              left: 50%;
+              margin-top: -10px;
+              margin-left: -10px;
+              position: absolute;
+            }
+            .status_text {
+              width: 100%;
+              position: absolute;
+              bottom: 0;
+            }
+            .pending {
+
+            }
+            .done {
+
+            }
+            .falure {
+
+            }
+          }
+        }
+      }
+    }
+  }
+  .content {
+    width: $wrap_width;
+    margin: 0 auto;
+    background: white;
+    position: relative;
+    .menu {
+      width: 170px;
+      height: 100%;
+      background: white;
+      float: left;
+      dl {
+        margin-top: 30px;
+        padding-left: 70px;
+        dt {
+          font-weight: bold;
+          font-size: 14px;
+        }
+        dd {
+          margin-top: 10px;
+          a{
+            font-size: 12px;
+            cursor: pointer;
+            &.active , &:hover {
+              color:$blue;
+            }
+          }
+        }
+      }
+    }
+    .detail {
+      width: 1000px;
+      padding-left: 10px;
+      background: #f6f6f6;
+      //
+      .my_inquire_list {
+        .inquire_list_filter {
+          height: 40px;
+          background: white;
+          margin-top: 10px;
+          .type {
+
+          }
+          .time {
+
+          }
+        }
+      }
+      // user info module start
+      .user_info {
+        .contact_wrapper {
+          height: 99px;
+          padding: 20px 0;
+          margin-top: 10px;
+          background: white;
+          box-shadow: 0 2px 2px 1px rgba(0,0,0,0.1);
+          position: relative;
+          z-index: 1;
+          .icon {
+            margin:0 25px 0 45px;
+            img {
+              border-radius: 50px;
+            }
+          }
+          .contact {
+            .user_name {
+              margin-bottom: 10px;
+            }
+          }
+        }
+        .history_wrapper {
+          height: 620px;
+          background: #fafafa;
+          margin-top: 10px;
+          box-shadow: 0 2px 2px 1px rgba(0,0,0,0.1);
+        }
+        .recommand_list_wrapper {
+          height: 170px;
+          background: white;
+          margin-top: 10px;
+          box-shadow: 0 0 5px 2px rgba(0,0,0,0.1);
+          .title {
+            width: 83px;
+            height: 170px;
+            line-height: 170px;
+            text-align: center;
+            border-left: 6px solid $blue;
+          }
+          .car_list {
+            width: 799px;
+            height: 170px;
+            border: 1px solid $line_gray;
+            border-top: none;
+            border-bottom: none;
+            li {
+              width: 24%;
+              display: inline-block;
+              text-align: center;
+            }
+          }
+          .more_link {
+            width: 97px;
+            height: 170px;
+            text-align: center;
+            line-height: 170px;
+            a {
+              color: $blue;
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+      // user info module end
+    }
+  }
+}

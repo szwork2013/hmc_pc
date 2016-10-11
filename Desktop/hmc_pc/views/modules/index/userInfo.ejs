@@ -1,0 +1,17 @@
+<div class="member-list-pic fl">
+    <h5>好买车会员用户</h5>
+    <ul class="member-list-menu">
+        <% var list = userInfo.users;for(var i = 0;i <6;i++){ %>
+        <li data-userid="<%-list[i].timelineUser%>">
+            <a href="javascript:;">
+                <img src="<%- list[i].timelineUserPic %>" class="member-avatar fl"/>
+                <div class="member-avatar-txt fl">
+                    <p><%-list[i].timelineUserName%></p>
+                    <span><%- list[i].timelinePhone.replace(list[i].timelinePhone.slice(3, -4), "****") %></span>
+                </div>
+                <i class="arrow-active"></i>
+            </a>
+        </li>
+        <% } %>
+    </ul>
+</div>

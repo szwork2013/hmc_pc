@@ -1,0 +1,205 @@
+@import '../../common/variables';
+@import '../../common/mixins';
+
+.history_price_list_wrap{
+  background:$bg_light_red;
+  padding:54px 0 20px;
+  box-shadow:0 2px 14px $line_dark_gray;
+}
+.history_price_list{
+  @include width_align_center;
+  @include module_header;
+  ul{
+    float:left;
+    margin-top:50px;
+    position:relative;
+    li{
+      overflow:hidden;
+      .store_img{
+        width:370px;
+        height:170px;
+        overflow:hidden;
+        margin:-30px 0 0 -20px;
+        img{
+          display:block;
+          width:370px;
+        }
+      }
+      float:left;
+      width:($wrap_width - 60px) / 3;
+      box-sizing:border-box;
+      background:$bg_light_blue;
+      margin:0 15px;
+      padding:30px 20px;
+      background:$white;
+      box-shadow:0 0 14px $line_light_gray;
+      &.first{
+        margin-left:0;
+      }
+      &.middle{
+        position:relative;
+        top:-30px;
+        padding-bottom:60px;
+        .store_img{
+          height:200px;
+        }
+      }
+      &.last{
+        margin-right:0;
+      }
+    }
+  }
+}
+
+.history_price_header{
+  border-bottom:1px solid $line_light_gray;
+  padding-bottom:20px;
+  margin-top:-90px;
+  position:relative;
+  text-align:center;
+  .store_parity_user_img{
+    padding-bottom:20px;
+    span{
+      display:inline-block;
+      font-size:18px;
+      color:$white;
+      margin-bottom:30px;
+      font-weight:bold;
+    }
+    img{
+      display:inline-block;
+      width:64px;
+      height:64px;
+      border-radius:40px;
+      border:6px solid $white;
+    }
+
+  }
+  p{
+    text-align:center;
+    color:$gray;
+    strong{
+      display:block;
+      font-size:14px;
+      margin-bottom:8px;
+
+    }
+    span{
+      display:block;
+      font-size:12px;
+      margin-top:3px;
+    }
+  }
+}
+
+.history_price_content{
+  .content_item{
+    padding:16px 0;
+    border-bottom:1px solid $line_light_gray;
+    span, strong{
+      display:inline-block;
+    }
+    span{
+      width:100px;
+      vertical-align:middle;
+      color:$gray;
+      font-size:12px;
+      i{
+        display:inline-block;
+        width:14px;
+        height:14px;
+        line-height:14px;
+        border-radius:7px;
+        background:$blue;
+        color:$white;
+        text-align:center;
+        margin-left:10px;
+      }
+    }
+    strong{
+      width:226px;
+      color:$gray;
+      text-align:right;
+      vertical-align:middle;
+      font-size:14px;
+      font-weight:normal;
+      em{
+        font-size:28px;
+        padding:0 4px;
+        font-weight:normal;
+      }
+    }
+    p{
+      padding:4px 0;
+      line-height:17px;
+    }
+    b{
+      display:block;
+      height:46px;
+      line-height:46px;
+      color:$white;
+      background:$black;
+      border-radius:4px;
+      padding-left:52px;
+      font-weight:normal;
+      margin:2px 0 8px;
+      background:$black url('/images/car_parity_detail/logo.png') no-repeat 11px 12px;
+    }
+  }
+  .extra_info{
+    span{
+      color:$line_dark_gray;
+    }
+    strong{
+      font-size:12px;
+      color:$bg_dark_gray;
+    }
+  }
+  .last_item{
+    position:relative;
+    margin:4px 0;
+    padding-bottom:18px;
+    strong{
+      vertical-align:top;
+    }
+    span{
+      vertical-align:top;
+    }
+    .over_time{
+      position:absolute;
+      text-align:center;
+      margin:0 42px;
+      width:250px;
+      background:$white;
+      font-weight:bold;
+      color:$gray;
+      bottom:-22px;
+    }
+  }
+}
+
+.history_price_btn{
+  margin-top:46px;
+  button{
+    float:left;
+    font-size:16px;
+    color:$white;
+    background:$line_gray;
+    padding:14px 0;
+    width:34%;
+    &.chat_btn{
+      padding-left:24px;
+      background:$line_gray url('/images/car_parity_detail/chat.png') no-repeat 22px 14px;
+    }
+    &.pay_btn{
+      width:60%;
+      float:right;
+    }
+    &.parity_btn{
+      background:$blue;
+      width:60%;
+      float:right;
+      color:$white;
+    }
+  }
+}

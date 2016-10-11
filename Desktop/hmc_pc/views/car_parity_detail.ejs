@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>好买车</title>
+    <link href="../style/car_parity_detail.css" rel="stylesheet"/>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=qkwXKuCY5GsctKcaopqTGbnl"></script>
+    <script src="/js/lib/require.js" data-main="/js/car_parity_detail" defer async="true"></script>
+  </head>
+  <body>
+    <% include common/common_header.ejs %>
+
+    <!-- car parity detail wrapper -->
+    <div class="car_parity_detail">
+
+      <!-- breadcrumb module -->
+      <div class="breadcrumb">
+        <p>
+          <span>首页</span>
+          <span>&gt;</span>
+          <span><%-parityTopInfo.brandName%> <%-parityTopInfo.typeName%></span>
+        </p>
+      </div>
+
+      <!-- car base info module -->
+      <div class="car_info_wrap clearfix">
+        <div class="car_info">
+          <div class="car_base_info">
+            <img src="<%-parityTopInfo.typePic%>" />
+            <div class="car_desc">
+              <h1><%-parityTopInfo.brandName%> <%-parityTopInfo.typeName%></h1>
+              <h2>指导价：<%-(parityTopInfo.minPrice/10000).toFixed(2)%>-<%-(parityTopInfo.maxPrice/10000).toFixed(2)%>万</h2>
+              <button class="change_car_type">更换</button>
+            </div>
+          </div>
+          <div class="car_extra_info">
+            <ul>
+              <li class="has_left_border">
+                <h3><%-parityTopInfo.askCount%>人</h3>
+                <span>正在比价</span>
+              </li>
+              <li class="has_left_border">
+                <h3><%-parityTopInfo.fsEmptyCount%>名</h3>
+                <span>专属销售员</span>
+              </li>
+              <li>
+                <h3><%-parityTopInfo.fsCount%>家</h3>
+                <span>认证4S店</span>
+              </li>
+              <li class="last_btn">
+                <button class="comparePricePopup">去比价 &gt;</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="bottom_line"></div>
+      </div>
+
+      <!-- price curve module -->
+      <div class="price_curve clearfix">
+      </div>
+
+      <!-- history price list module -->
+      <div class="history_price_list_wrap clearfix">
+        <div class="history_price_list">
+          <div class="header">
+            <h2>价比三家，看看总共需要花多少钱把车开回家？</h2>
+            <h4>看看别人的报价单，千万不要被过低的裸车价所迷惑，算清落地总价才不花冤枉钱！</h4>
+          </div>
+          <ul>
+            <%for(var i = 0; i < parityHistoryOrder.length; i++){%>
+              <li>
+                <div class="store_img">
+                  <img src="<%-parityHistoryOrder[i].fsPic%>"/>
+                </div>
+                <div class="history_price_header">
+                  <div class="store_parity_user_img">
+                    <span>历史报价单</span><br/>
+                    <img src="<%-parityHistoryOrder[i].empPic%>"/>
+                  </div>
+                  <p>
+                    <strong><%-parityHistoryOrder[i].fsAbbrname%></strong>
+                    <span><%-parityHistoryOrder[i].empName%> <%-parityHistoryOrder[i].empPost%></span>
+                    <span>报价日期：<%-parityHistoryOrder[i].respondTime%></span>
+                  </p>
+                </div>
+                <div class="history_price_content">
+                  <div class="content_item">
+                    <p>
+                      <span>到手总价</span>
+                      <strong>￥<em><%-(parityHistoryOrder[i].webRespondSource.sourceSum/10000).toFixed(2)%></em>万</strong>
+                    </p>
+                  </div>
+                  <div class="content_item">
+                    <p>
+                      <span>厂商指导价</span>
+                      <strong><strike>￥<%-(parityHistoryOrder[i].askpModelPrice/10000).toFixed(2)%>万</strike></strong>
+                    </p>
+                    <p>
+                      <span>裸车价</span>
+                      <strong>￥<%-(parityHistoryOrder[i].askpModelPrice/10000-parityHistoryOrder[i].webRespondSource.sourcePrice/10000).toFixed(2)%>万</strong>
+                    </p>
+                    <p>
+                      <span>裸车让利</span>
+                      <strong>￥<%-(parityHistoryOrder[i].webRespondSource.sourcePrice/10000).toFixed(2)%>万</strong>
+                    </p>
+                  </div>
+                  <div class="content_item">
+                    <p>
+                      <b><%-parityHistoryOrder[i].respondReasonableType%></b>
+                    </p>
+                    <p>
+                      <span>库存<i>?</i></span>
+                      <strong><%-parityHistoryOrder[i].webRespondSource.sourceDesc%></strong>
+                    </p>
+                  </div>
+                  <div class="content_item extra_info">
+                    <p>
+                      <span>购置税</span>
+                      <strong><%-parityHistoryOrder[i].webRespondSource.sourceTax%>元</strong>
+                    </p>
+                    <p>
+                      <span>商保险费</span>
+                      <strong><%-parityHistoryOrder[i].webRespondSource.sourceInsure%>元</strong>
+                    </p>
+                    <p>
+                      <span>贷款手续费</span>
+                      <strong><%-parityHistoryOrder[i].webRespondSource.sourceLoanCharge%>元</strong>
+                    </p>
+                    <p>
+                      <span>贷款补贴</span>
+                      <strong><%-parityHistoryOrder[i].webRespondSource.sourceLoan%>元</strong>
+                    </p>
+                    <p>
+                      <span>置换补贴</span>
+                      <strong><%-parityHistoryOrder[i].webRespondSource.sourceReplace%>元</strong>
+                    </p>
+                  </div>
+                  <div class="content_item extra_info">
+                    <p>
+                      <span>加装费用</span>
+                      <strong><%-parityHistoryOrder[i].webRespondSource.sourceBindPrice%>元</strong>
+                    </p>
+                    <p>
+                      <span>加装项目</span>
+                      <strong><%-parityHistoryOrder[i].sourceBind%></strong>
+                    </p>
+                    <p>
+                      <span>装潢赠送</span>
+                      <strong><%-parityHistoryOrder[i].packOptionname%></strong>
+                    </p>
+                  </div>
+                  <div class="content_item extra_info last_item">
+                    <p>
+                      <span>补充说明</span>
+                      <strong><%-parityHistoryOrder[i].descContent%></strong>
+                    </p>
+                    <p class="over_time">
+                      有效期截止 <br/>
+                      <%-parityHistoryOrder[i].validDate%>
+                    </p>
+                  </div>
+                </div>
+                <div class="history_price_btn">
+                  <button class="chat_btn">去砍价</button>
+                  <button class="pay_btn">支付订金，锁定价格</button>
+                </div>
+              </li>
+            <%}%>
+            <!-- <li class="middle">
+              <div class="store_img">
+                <img src="http://haomaiche.com/upload/finalFileDir/fsInfo/5585810e5303497bb324ae82efeb497b.jpg" />
+              </div>
+              <div class="history_price_header">
+                <div class="store_parity_user_img">
+                  <span>历史报价单</span><br/>
+                  <img src="http://haomaiche.com/upload/finalFileDir/fsInfo/5585810e5303497bb324ae82efeb497b.jpg" />
+                </div>
+                <p>
+                  <strong>一汽大众虹梅南路店</strong>
+                  <span>王大大 销售经理</span>
+                  <span>报价日期：2016/07/11 16:00</span>
+                </p>
+              </div>
+              <div class="history_price_content">
+                <div class="content_item">
+                  <p>
+                    <span>到手总价</span>
+                    <strong>￥<em>23.40</em>万</strong>
+                  </p>
+                </div>
+                <div class="content_item">
+                  <p>
+                    <span>厂商指导价</span>
+                    <strong><strike>￥24.40万</strike></strong>
+                  </p>
+                  <p>
+                    <span>裸车价</span>
+                    <strong>￥22.40万</strong>
+                  </p>
+                  <p>
+                    <span>裸车让利</span>
+                    <strong>￥2.00万</strong>
+                  </p>
+                </div>
+                <div class="content_item">
+                  <p>
+                    <b>报价合理：建议在线预订，享受好买车3倍赔付保障</b>
+                  </p>
+                  <p>
+                    <span>库存<i>?</i></span>
+                    <strong>少量现车</strong>
+                  </p>
+                </div>
+                <div class="content_item extra_info">
+                  <p>
+                    <span>购置税</span>
+                    <strong>5,372元</strong>
+                  </p>
+                  <p>
+                    <span>商保险费</span>
+                    <strong>5,372元</strong>
+                  </p>
+                  <p>
+                    <span>贷款手续费</span>
+                    <strong>950元</strong>
+                  </p>
+                  <p>
+                    <span>贷款补贴</span>
+                    <strong>1,000元</strong>
+                  </p>
+                  <p>
+                    <span>置换补贴</span>
+                    <strong>1,000元</strong>
+                  </p>
+                </div>
+                <div class="content_item extra_info">
+                  <p>
+                    <span>加装费用</span>
+                    <strong>6000元</strong>
+                  </p>
+                  <p>
+                    <span>加装项目</span>
+                    <strong>玻璃板，天窗，发动机3号</strong>
+                  </p>
+                  <p>
+                    <span>装潢赠送</span>
+                    <strong>玻璃板，天窗</strong>
+                  </p>
+                </div>
+                <div class="content_item extra_info last_item">
+                  <p>
+                    <span>补充说明</span>
+                    <strong>到店更多优惠，就这些，就这些就这些就这些这些就这些这些就这些这些就这些这些就这些这些就这些这些就这些</strong>
+                  </p>
+                  <p class="over_time">
+                    有效期截止 <br/>
+                    2016年06月20日 15:00
+                  </p>
+                </div>
+              </div>
+              <div class="history_price_btn">
+                <button class="chat_btn">去砍价</button>
+                <button class="parity_btn comparePricePopup">我也想去比价 &gt;</button>
+              </div>
+            </li> -->
+            <!-- <li class="last">
+              <div class="store_img">
+                <img src="http://haomaiche.com/upload/finalFileDir/fsInfo/5585810e5303497bb324ae82efeb497b.jpg" />
+              </div>
+              <div class="history_price_header">
+                <div class="store_parity_user_img">
+                  <span>历史报价单</span><br/>
+                  <img src="http://haomaiche.com/upload/finalFileDir/fsInfo/5585810e5303497bb324ae82efeb497b.jpg" />
+                </div>
+                <p>
+                  <strong>一汽大众虹梅南路店</strong>
+                  <span>王大大 销售经理</span>
+                  <span>报价日期：2016/07/11 16:00</span>
+                </p>
+              </div>
+              <div class="history_price_content">
+                <div class="content_item">
+                  <p>
+                    <span>到手总价</span>
+                    <strong>￥<em>23.40</em>万</strong>
+                  </p>
+                </div>
+                <div class="content_item">
+                  <p>
+                    <span>厂商指导价</span>
+                    <strong><strike>￥24.40万</strike></strong>
+                  </p>
+                  <p>
+                    <span>裸车价</span>
+                    <strong>￥22.40万</strong>
+                  </p>
+                  <p>
+                    <span>裸车让利</span>
+                    <strong>￥2.00万</strong>
+                  </p>
+                </div>
+                <div class="content_item">
+                  <p>
+                    <b>报价过高：建议在线砍价</b>
+                  </p>
+                  <p>
+                    <span>库存<i>?</i></span>
+                    <strong>少量现车</strong>
+                  </p>
+                </div>
+                <div class="content_item extra_info">
+                  <p>
+                    <span>购置税</span>
+                    <strong>5,372元</strong>
+                  </p>
+                  <p>
+                    <span>商保险费</span>
+                    <strong>5,372元</strong>
+                  </p>
+                  <p>
+                    <span>贷款手续费</span>
+                    <strong>950元</strong>
+                  </p>
+                  <p>
+                    <span>贷款补贴</span>
+                    <strong>1,000元</strong>
+                  </p>
+                  <p>
+                    <span>置换补贴</span>
+                    <strong>1,000元</strong>
+                  </p>
+                </div>
+                <div class="content_item extra_info">
+                  <p>
+                    <span>加装费用</span>
+                    <strong>6000元</strong>
+                  </p>
+                  <p>
+                    <span>加装项目</span>
+                    <strong>玻璃板，天窗，发动机3号</strong>
+                  </p>
+                  <p>
+                    <span>装潢赠送</span>
+                    <strong>玻璃板，天窗</strong>
+                  </p>
+                </div>
+                <div class="content_item extra_info last_item">
+                  <p>
+                    <span>补充说明</span>
+                    <strong>到店更多优惠，就这些，就这些就这些就这些这些就这些这些就这些这些就这些这些就这些这些就这些这些就这些</strong>
+                  </p>
+                  <p class="over_time">
+                    有效期截止 <br/>
+                    2016年06月20日 15:00
+                  </p>
+                </div>
+              </div>
+              <div class="history_price_btn">
+                <button class="chat_btn">去砍价</button>
+                <button class="pay_btn">支付订金，锁定价格</button>
+              </div>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+
+      <!-- car details module -->
+      <div class="car_details clearfix">
+        <div class="car_details_tabs">
+          <ul>
+            <li class="car_model active">款型</li>
+            <li class="car_images js_show_car_images">图片</li>
+            <li class="car_config js_show_car_config">配置</li>
+          </ul>
+        </div>
+        <div class="car_details_content">
+          <!-- 款型 detail -->
+          <div class="item item1 car_model_detail hide1">
+            <%for(var i = 0; i < parityCarTypeList.length; i++){%>
+              <table class="first">
+                <thead>
+                  <tr width="100%">
+                    <th width="41%"><div><%-parityCarTypeList[i].orderKey%></div></th>
+                    <th width="11%">比价人数</th>
+                    <th width="11%">指导价</th>
+                    <th width="11%">4S店平均报价</th>
+                    <th width="18%">好买车预估价</th>
+                    <th width="10%">相关信息</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%for(var j = 0; j < parityCarTypeList[i].carModelList.length; j++){%>
+                    <tr>
+                      <td>
+                        <div>
+                          <h3><%-parityCarTypeList[i].carModelList[j].modelName%></h3>
+                          <h4>
+                            <%-parityCarTypeList[i].carModelList[j].modelDrive%> <%-parityCarTypeList[i].carModelList[j].modelGearbox%>
+                            <strong class="taxPolicy"><%-parityCarTypeList[i].carModelList[j].modelTaxPolicy%></strong>
+                            <strong class="active subSidy"><%-parityCarTypeList[i].carModelList[j].isSubSidy%></strong>
+                          </h4>
+                        </div>
+                      </td>
+                      <td><b><i style="width:50%;"></i></b></td>
+                      <td><strike><%-(parityCarTypeList[i].carModelList[j].modelPrice/10000).toFixed(2)%>万起</strike></td>
+                      <td><%-(parityCarTypeList[i].carModelList[j].avgPrice/10000).toFixed(2)%>万起</td>
+                      <td>
+                        <button>选定比价</button>
+                        <a class="hasDsCar" href="#"><%-parityCarTypeList[i].carModelList[j].hasDsCar%></a>
+                      </td>
+                      <td>
+                        <span class="js_show_car_images">图片</span>
+                        <span class="js_show_car_config">配置</span>
+                      </td>
+                    </tr>
+                  <%}%>
+                </tbody>
+              </table>
+            <%}%>
+          </div>
+
+          <!-- 图片 detail -->
+          <div class="item item2 car_images_detail hide">
+            <div class="slides_count">
+              <span></span>
+            </div>
+            <div id="car_images_details_slides">
+              <!-- Loading Screen -->
+              <!--<div class="loading" data-u="loading">
+                  <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+                  <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+              </div>-->
+              <div class="images_slides" data-u="slides">
+                <%for(var i = 0; i < parityImgList.length; i++){%>
+                  <div class="img_container" data-p="150.00" style="display: none;">
+                    <img data-u="image" src="<%-parityImgList[i].tpicPath%>" />
+                    <img data-u="thumb" src="<%-parityImgList[i].tpicPath%>" />
+                  </div>
+                <%}%>
+              </div>
+              <!-- Thumbnail Navigator -->
+              <div data-u="thumbnavigator" class="jssort01-99-66" data-autocenter="2">
+                  <!-- Thumbnail Item Skin Begin -->
+                  <div class="thumbnail_slides" data-u="slides" style="cursor: default;">
+                      <div data-u="prototype" class="p">
+                          <div class="w">
+                              <div data-u="thumbnailtemplate" class="t"></div>
+                          </div>
+                          <div class="c"></div>
+                      </div>
+                  </div>
+                  <!-- Thumbnail Item Skin End -->
+              </div>
+              <!-- Arrow Navigator -->
+              <span data-u="arrowleft" class="jssora05l" data-autocenter="2"></span>
+              <span data-u="arrowright" class="jssora05r" data-autocenter="2"></span>
+            </div>
+          </div>
+
+          <!-- 配置 detail -->
+          <div class="item item3 car_config_detail hide">
+            <% include modules/car_config %>
+          </div>
+        </div>
+      </div>
+
+      <!-- shop map module -->
+      <div class="shop_map_wrap">
+        <div class="header">
+          <h2>我们为你推荐距离最近的3家4S店进行比价</h2>
+          <h4>还犹豫什么，距离越近的4S店，价格竞争越激烈！</h4>
+          <% include modules/shop_map %>
+        </div>
+      </div>
+
+      <!-- direct sale recommend list module -->
+      <div class="direct_sale_recommend_wrap clearfix">
+        <% include modules/direct_sale_recommend_list %>
+      </div>
+
+      <!-- ad banner module -->
+      <div class="ad_banner_wrap">
+        <% include modules/ad_banner %>
+      </div>
+
+      <!-- user activity track module -->
+      <div class="user_activity_track_wrap">
+        <% include modules/user_activity_track %>
+      </div>
+
+      <div class="purchaseDemand">
+        <div class="purchaseDemandContent">
+          <div class="close"></div>
+          <p class="back">&lt 返回修改</p>
+          <p class="forword"></p>
+          <div class="demand">
+            <div class="demandTitle">
+              <h3>告诉我们您的购车需求</h3>
+              <h6>一个笼统、不透明的报价，会让购车者感到缺乏诚意</h6>
+              <p>为此，我们要求认证4S店依据实时更新的库存及用户的购车需求，精准报价花10秒告诉我们你的购车、上牌、贷款需求吧别担心，我们会及时提醒你哪家价格更有诚意；</p>
+            </div>
+            <img src="/images/order_car.png">
+            <div class="nextStep">下一步></div>
+          </div>
+          <div class="type">
+            <div class="title">什么样的款型适合您？</div>
+          </div>
+          <div class="color">
+            <div class="title">您喜欢什么颜色</div>
+            <ul>
+              <li>
+                <div style="background-color: #000"></div>
+                <p>000</p>
+              </li>
+              <li>
+                <div style="background-color: #111"></div>
+                <p>111</p>
+              </li>
+              <li>
+                <div style="background-color: #222"></div>
+                <p>222222222222222</p>
+              </li>
+              <li>
+                <div style="background-color: #333"></div>
+                <p>333</p>
+              </li>
+              <li>
+                <div style="background-color: #444"></div>
+                <p>444</p>
+              </li>
+              <li>
+                <div style="background-color: #555"></div>
+                <p>555</p>
+              </li>
+              <li>
+                <div style="background-color: #666"></div>
+                <p>666</p>
+              </li><li>
+                <div style="background-color: #777"></div>
+                <p>777</p>
+              </li>
+              <li>
+                <div style="background-color: #888"></div>
+                <p>888</p>
+              </li>
+              <li>
+                <div style="background-color: #999"></div>
+                <p>999</p>
+              </li>
+              <li>
+                <div style="background-color: #fff"></div>
+                <p>fff</p>
+              </li>
+            </ul>
+          </div>
+          <div class="license">
+            <div class="title">您想上哪里的牌照？</div>
+            <div class="licenseType">
+              <ul class="licenseChoose">
+                <li>上沪牌</li><li>上外牌</li><li>上沪C</li>
+              </ul>
+              <div class="household">
+                <p>请选择您的身份证户籍</p>
+                <ul class="common">
+                  <li>S 上海籍</li>
+                  <li>A 安徽籍</li>
+                  <li>Z 浙江籍</li>
+                </ul>
+                <ul class="householdList">
+                  <li>S 上海籍</li>
+                  <li>S 上海籍</li>
+                  <li>S 上海籍</li>
+                  <li>S 上海籍</li>
+                  <li>S 上海籍</li>
+                </ul>
+              </div>
+              <div class="city">
+                <p>请选择户籍所在城市</p>
+                <div class="cityDropdown"></div>
+              </div>
+            </div>
+          </div>
+          <div class="purchaseWay">
+            <div class="title">您想如何购车？</div>
+            <ul>
+              <li>全款购车</li>
+              <li>贷款购车</li>
+              <li>全款+置换购车</li>
+              <li>贷款+置换购车</li>
+            </ul>
+          </div>
+          <div class="purchaseTime">
+            <div class="title">准备何时迎来激动人心的买车时刻？</div>
+            <ul>
+              <li>3个月以后购车</li>
+              <li>3个月内购车</li>
+              <li>1个月内购车</li>
+              <li>2周内购车</li>
+            </ul>
+          </div>
+          <div class="loginRegister">
+            <% include modules/popup/car_parity_login_register %>
+          </div>
+          <div class="complete">
+            <div class="receiveTime">
+              <div class="title">您最迟将于明日<span>20:00</span>收到报价</div>
+              <img src="/images/car_parity_detail/compare_complete.png">
+            </div>
+            <div class="scan">
+              <div class="scanContent">
+                <p>扫描移动版<br/>查阅更方便</p>
+                <img src="/images/index/app_pic.png">
+                <img src="/images/index/wechart_pic.png">
+              </div>
+            </div>
+          </div>
+          <div class="almost">
+            <div class="title">太可惜了，还差一点就能获得真实、准确的报价了！</div>
+            <img src="/images/car_parity_detail/broken_heart.png">
+            <div class="quit">我放弃了</div>
+            <div class="realPrice">我要真实报价，不放弃</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% include common/common_footer.ejs %>
+    <!--<script type="text/javascript" src="/js/modules/map.js"></script>-->
+  </body>
+</html>

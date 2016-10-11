@@ -1,0 +1,121 @@
+.popup {
+  background: #000;
+  opacity: 0.6;
+  filter: alpha(opactiy=60);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  display: none; }
+  .popup.active {
+    display: block; }
+
+.home-popup-cont {
+  position: fixed;
+  left: 50%;
+  top: 30px;
+  z-index: 101;
+  display: none;
+  height: 584px;
+  width: 1030px;
+  margin-left: -515px; }
+  .home-popup-cont.active {
+    display: block; }
+  .home-popup-cont .popup-close {
+    width: 24px;
+    height: 24px;
+    background: url(../images/hmc_sprite.png) no-repeat -423px -58px;
+    display: block;
+    position: absolute;
+    right: -10px;
+    top: -10px; }
+  .home-popup-cont .home-popup-menu {
+    width: 368px;
+    padding-left: 25px;
+    padding-bottom: 54px;
+    padding-top: 50px;
+    background: #030a11; }
+    .home-popup-cont .home-popup-menu h4 {
+      line-height: 30px; }
+      .home-popup-cont .home-popup-menu h4 i {
+        padding-left: 20px; }
+
+.brand-cat {
+  padding-left: 3px;
+  width: 351px;
+  overflow-y: hidden;
+  position: relative; }
+  .brand-cat.active {
+    background: url(../images/index/home_car_arrow.png) no-repeat 343px center; }
+  .brand-cat dt, .brand-cat dd {
+    float: left; }
+  .brand-cat dt {
+    padding-right: 25px;
+    line-height: 30px; }
+  .brand-cat dd {
+    width: 230px;
+    line-height: 30px; }
+    .brand-cat dd a {
+      display: inline-block;
+      color: #fff;
+      padding-right: 12px; }
+      .brand-cat dd a.active {
+        color: #09afec; }
+
+.overflow {
+  overflow: hidden;
+  padding-right: 15px; }
+
+.home-popup-pic {
+  background: #fff;
+  width: 662px;
+  height: 584px; }
+  .home-popup-pic .tips_txt {
+    color: #333;
+    margin-top: 45%;
+    font-size: 14px; }
+
+.home-brand-des {
+  width: 192px;
+  text-align: center; }
+  .home-brand-des img {
+    margin: 40px auto 0;
+    width: 60px; }
+  .home-brand-des .home-brand-txt {
+    margin-top: 160px; }
+    .home-brand-des .home-brand-txt p {
+      color: #363636; }
+      .home-brand-des .home-brand-txt p.active {
+        color: #09afec; }
+
+.home-brand-img {
+  height: 584px;
+  width: 470px;
+  overflow: auto; }
+
+.carType_menu li {
+  margin-bottom: 28px; }
+  .carType_menu li a {
+    color: #363636; }
+  .carType_menu li.active a {
+    color: #09afec; }
+
+.home-brand-pic {
+  padding-top: 30px;
+  width: 450px;
+  overflow: hidden; }
+  .home-brand-pic li {
+    padding: 20px 10px 0;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    float: left;
+    background: #eff5f7; }
+    .home-brand-pic li span {
+      color: #363636;
+      display: block;
+      text-align: center;
+      margin: 20px 0 20px; }
+    .home-brand-pic li img {
+      width: 120px; }

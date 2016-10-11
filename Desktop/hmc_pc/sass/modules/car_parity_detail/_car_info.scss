@@ -1,0 +1,89 @@
+@import '../../common/variables';
+@import '../../common/mixins';
+
+.car_info_wrap{
+
+}
+.car_info{
+  @include width_align_center;
+  .car_base_info{
+    float:left;
+    img{
+      float:left;
+      width:auto;
+      height:110px;
+    }
+    .car_desc{
+      margin:14px 0 20px 200px;
+      position:relative;
+      max-width:240px;
+      min-height:80px;
+      h1{
+        font-size:18px;
+        color:$black;
+        margin-bottom:8px;
+        line-height:22px;
+      }
+      h2{
+        font-size:14px;
+        color:$black;
+      }
+      .change_car_type{
+        font-weight:normal;
+        display:inline-block;
+        width:50px;
+        height:20px;
+        background:$blue;
+        color:$white;
+        border-radius:25px;
+        position:absolute;
+        top:1px;
+        right:-60px;
+      }
+    }
+  }
+  .car_extra_info{
+    float:right;
+    margin-top:12px;
+    ul{
+      li{
+        float:left;
+        padding:0 14px;
+        text-align:center;
+        &.has_left_border{
+          border-right:1px solid $line_light_gray;
+        }
+        &.last_btn{
+          padding-right:0;
+        }
+        h3{
+          font-size:18px;
+          color:$black;
+          padding-bottom:4px;
+        }
+        span{
+          font-size:14px;
+          color:$line_dark_gray;
+        }
+      }
+    }
+    button{
+      float:right;
+      background:$blue;
+      display:block;
+      width:270px;
+      height:54px;
+      color:$white;
+      font-size:16px;
+      margin-top:-2px;
+      margin-left:4px;
+    }
+  }
+}
+
+.bottom_line{
+  height:10px;
+  clear:both;
+  background:$bg_light_gray;
+  border-top:1px solie $line_dark_gray;
+}

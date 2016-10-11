@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>好买车</title>
+    <link href="/style/index.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="first_use">
+    <div class="fist_use_wrap">
+        <span class="firstUser_close"></span>
+        <h4>买车从来不是一件简单的事！</h4>
+        <p>亲，欢迎来到好买车！每天，我们的团队为众多和您一样的会员提供专业服务，这让我们很幸福！</p>
+        <p>我们做得事情很有意义：帮你搞懂（定）车价，买到称心的车子。</p>
+        <p>通过我们，您可以：</p>
+        <ul class="select_use_info">
+            <li class="first">
+                <i class="use_ico1"></i>
+                <p>参考其他购车者的历史成交价，了解最</p>
+                <p>真实的价格行情走势</p>
+            </li>
+            <li>
+                <i class="use_ico1"></i>
+                <p>让300家4S店为您在线PK，得到当前最</p>
+                <p>优惠的成交价</p>
+            </li>
+            <li>
+                <i class="use_ico1"></i>
+                <p>直接预订好买车的自营直销车，享受</p>
+                <p>“现车底价+上门服务”</p>
+            </li>
+        </ul>
+        <a href="javascript:;" class="select_car_btn chooseCar">选择车型去试试吧！</a>
+    </div>
+</div>
+<div class="home-banner">
+    <div id="header">
+        <div class="header_mask">
+        </div>
+        <div class="wrap header_wrap">
+            <a href="/"><img src="./images/logo.png" class="fl"/></a>
+            <div class="header_cityList fl">
+                <p id="cityList">上海 <i class="city_ico"></i></p>
+                <ul class="header_city_cat">
+                    <li class="active"><a href="javascript:;">上海</a></li>
+                    <li><a href="javascript:;">杭州</a></li>
+                </ul>
+            </div>
+            <div class="header_info fl">
+                <input type="text" class="header_search" placeholder="请输入搜索的相关车型"/>
+                <i class="search_result"></i>
+                <ul class="search_list">
+                </ul>
+            </div>
+            <div class="header_carList fr">
+                <a href="javascript:;" class="carList_ico"></a>
+                <a href="/user_center/123/my_info" class="user_ico"></a>
+                <ul class="carModel_list">
+                    <li>
+                        <a href="javascript:;">
+                            <img src="http://static.haomaiche.com/common/images/type/37caaf2c99354154b209ef3b6444bd47.png"/>
+                            <div class="carMode_des fl">
+                                <h5>SMART Fourfour</h5>
+                                <p>2016款 1.4T 双离合 35 TFSI ...</p>
+                                <span>2016/08/02</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <img src="http://static.haomaiche.com/common/images/type/37caaf2c99354154b209ef3b6444bd47.png"/>
+                            <div class="carMode_des fl">
+                                <h5>SMART Fourfour</h5>
+                                <p>2016款 1.4T 双离合 35 TFSI ...</p>
+                                <span>2016/08/02</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <img src="http://static.haomaiche.com/common/images/type/37caaf2c99354154b209ef3b6444bd47.png"/>
+                            <div class="carMode_des fl">
+                                <h5>SMART Fourfour</h5>
+                                <p>2016款 1.4T 双离合 35 TFSI ...</p>
+                                <span>2016/08/02</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <h3>60秒,成为新车价格行家</h3>
+    <p class="size-22">上海300家4S店在线比价，让你买车不花冤枉钱</p>
+    <ul class="banner-btns">
+        <li class="active chooseCar"><a href="javascript:;">选择车型</a></li>
+        <li id="firstOpen"><a href="javascript:;">初次使用？</a></li>
+    </ul>
+    <% include modules/carModel/carModel.ejs %>
+</div>
+<div class="wrap brand-list">
+    <a href="javascript:;" class="brand-prev"></a>
+    <div class="brand-list-wrap">
+        <ul class="brand-list-menu">
+            <% for(var i = 0;i < brandLogo.length;i++){ %>
+            <li class="brandLogo-item" data-brandid="<%- brandLogo[i].topBrandId %>"><img
+                        src="<%- brandLogo[i].brandLogo %>"/></li>
+            <% } %>
+        </ul>
+    </div>
+    <a href="javascript:;" class="brand-next"></a>
+    <div class="home-title">
+        <h5>看看350款热销车的历史成交价</h5>
+        <p>所有数据来自网站会员的真实成交价，我们努力让您60秒成为车价行家！</p>
+        <a href="javascript:;" class="home-title-more chooseCar">更多></a>
+    </div>
+</div>
+<div class="wrap hot-carList">
+    <ul class="hot-carList-menu clearfix">
+        <%for(var i=0;i<hotCarList.length;i++){%>
+        <li>
+            <a href="/car_parity_detail/<%-hotCarList[i].typeId%>">
+                <img src="<%-hotCarList[i].tpicPath%>"/>
+                <p><%-hotCarList[i].brandName%> <%-hotCarList[i].typeName%></p>
+                <span>指导价 ￥<%- (hotCarList[i].typeMinPrice/10000).toFixed(2)%>万~￥<%- (hotCarList[i].typeMaxPrice/10000).toFixed(2)%>万</span>
+            </a>
+        </li>
+        <%}%>
+    </ul>
+    <div class="home-title">
+        <h5>选择300家4S店PK当前成交价</h5>
+        <p>我们对上海300家4S店进行认证，确保1500名销售员随时为您在线PK报价！</p>
+    </div>
+</div>
+<div class="home-map">
+    <div class="wrap home-map-wrap clearfix">
+        <ul class="map-menu" id="mapMenu">
+            <li><a href="javascript:;">全部区域</a><i class="map-arrow"></i></li>
+            <li><a href="javascript:;">全部品牌</a><i class="map-arrow"></i></li>
+        </ul>
+        <div class="map-tab map-area">
+            <div class="map-area-list fl">
+                <h4>全部区域</h4>
+                <ul class="map-area-menu">
+                    <li><a href="javascript:;">黄浦区</a></li>
+                    <li><a href="javascript:;">黄浦区</a></li>
+                    <li><a href="javascript:;">黄浦区</a></li>
+                    <li><a href="javascript:;">黄浦区</a></li>
+                    <li><a href="javascript:;">黄浦区</a></li>
+                    <li><a href="javascript:;">黄浦区</a></li>
+                    <li><a href="javascript:;">黄浦区</a></li>
+                    <li><a href="javascript:;">黄浦区</a></li>
+                    <li><a href="javascript:;">黄浦区</a></li>
+                    <li><a href="javascript:;">黄浦区</a></li>
+                    <li><a href="javascript:;">黄浦区</a></li>
+                    <li><a href="javascript:;">黄浦区</a></li>
+                    <li><a href="javascript:;">黄浦区</a></li>
+                    <li><a href="javascript:;">黄浦区</a></li>
+                </ul>
+            </div>
+            <div class="mao-brand fl">
+                <dl class="map-cat">
+                    <dt>A</dt>
+                    <dd>
+                        <a href="javascript:;">北蔡</a>
+                        <a href="javascript:;">碧云</a>
+                        <a href="javascript:;">碧云</a>
+                        <a href="javascript:;">碧云</a>
+                        <a href="javascript:;">碧云</a>
+                        <a href="javascript:;">碧云</a>
+                        <a href="javascript:;">碧云</a>
+                        <a href="javascript:;">碧云</a>
+                        <a href="javascript:;">碧云</a>
+                        <a href="javascript:;">碧云</a>
+                    </dd>
+                </dl>
+                <dl class="map-cat">
+                    <dt>B</dt>
+                    <dd>
+                        <a href="javascript:;">北蔡</a>
+                        <a href="javascript:;">碧云</a>
+                        <a href="javascript:;">碧云</a>
+                        <a href="javascript:;">碧云</a>
+                        <a href="javascript:;">碧云</a>
+                        <a href="javascript:;">碧云</a>
+                    </dd>
+                </dl>
+
+                <dl class="map-cat">
+                    <dt>C</dt>
+                    <dd>
+                        <a href="javascript:;">北蔡</a>
+                        <a href="javascript:;">碧云</a>
+                        <a href="javascript:;">碧云</a>
+                        <a href="javascript:;">碧云</a>
+                        <a href="javascript:;">碧云</a>
+                        <a href="javascript:;">碧云</a>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <div class="map-tab map-brand">
+            <h4>ALL<i>全部品牌</i></h4>
+            <dl class="map-cat map-brand-cat">
+                <dt>A</dt>
+                <dd>
+                    <a href="javascript:;">宝马</a>
+                    <a href="javascript:;">北汽</a>
+                    <a href="javascript:;">本田</a>
+                    <a href="javascript:;">标致</a>
+                    <a href="javascript:;">别克</a>
+                    <a href="javascript:;">比亚迪</a>
+                    <a href="javascript:;">本田</a>
+                    <a href="javascript:;">标致</a>
+                    <a href="javascript:;">别克</a>
+                    <a href="javascript:;">比亚迪</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+<div class="wrap member-info">
+    <div class="home-title">
+        <h5>和35300名会员一起，深入了解好买车</h5>
+        <p>看看粉丝们是如何评价好买车，希望您在享受会员服务后，也晒出中肯的评价！</p>
+    </div>
+    <div class="member-list">
+       <img class="loading" src="/images/loading.jpg"/>
+    </div>
+</div>
+<div class="friend-linkWrap">
+    <div class="wrap friend-link">
+        <h4>好买车携手10大知名服务商，为会员提供150款自营直销车</h4>
+        <p>好买车为会员推出“现车底价+上门服务”的自营直销车。用户可在4S店提车，</p>
+        <p>并享受好买车提供的贷款、保险、上牌等全套上门服务，省钱又有保障</p>
+        <ul class="friend-link-menu">
+            <li><img src="./images/index/friend_link_01.png"/></li>
+            <li><img src="./images/index/friend_link_02.png"/></li>
+            <li><img src="./images/index/friend_link_03.png"/></li>
+            <li><img src="./images/index/friend_link_04.png"/></li>
+            <li><img src="./images/index/friend_link_05.png"/></li>
+            <li><img src="./images/index/friend_link_06.png"/></li>
+            <li><img src="./images/index/friend_link_07.png"/></li>
+            <li><img src="./images/index/friend_link_08.png"/></li>
+            <li><img src="./images/index/friend_link_09.png"/></li>
+            <li><img src="./images/index/friend_link_10.png"/></li>
+            <li><img src="./images/index/friend_link_11.png"/></li>
+            <li><img src="./images/index/friend_link_12.png"/></li>
+        </ul>
+        <a href="/direct_sale_list/carBrand/carType/minPrice/maxPrice/descType" class="friend-link-more">更多直销车</a>
+        <div class="friend-link-popup">
+            <ul class="friend-link-service">
+                <li>
+                    <i class="service-ico1"></i>
+                    <p>现车底价</p>
+                    <span>4S店提车,全网保养</span>
+                </li>
+                <li>
+                    <i class="service-ico2"></i>
+                    <p>上门服务</p>
+                    <span>上门接送看车,签单</span>
+                </li>
+                <li>
+                    <i class="service-ico3"></i>
+                    <p>代拍牌照</p>
+                    <span>代拍沪牌,代办外牌</span>
+                </li>
+                <li>
+                    <i class="service-ico4"></i>
+                    <p>受理贷款</p>
+                    <span>受理贷款</span>
+                </li>
+                <li class="no_margin">
+                    <i class="service-ico5"></i>
+                    <p>代办保险</p>
+                    <span>超10家合作保险公司</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="wrap evaluate">
+    <div class="home-title">
+        <h5>更多的媒体评价供您参考</h5>
+        <p>更多的媒体评价，让您对我们的产品有更加深入的认识，打消您的疑虑</p>
+    </div>
+    <ul class="evaluate_list">
+        <li>
+            <img src="./images/index/evaluate_ico.png"/>
+            <h5>36氪</h5>
+            <p>从对标企业来看，国外的 Truecar 经历
+                一系列波折终于在今年上半年上市，目
+                前市值接近 15 亿美元国内的易车...</p>
+            <a href="#" class="evaluate_more">更多></a>
+        </li>
+        <li>
+            <img src="./images/index/evaluate_ico.png"/>
+            <h5>36氪</h5>
+            <p>从对标企业来看，国外的 Truecar 经历
+                一系列波折终于在今年上半年上市，目
+                前市值接近 15 亿美元国内的易车...</p>
+            <a href="#" class="evaluate_more">更多></a>
+        </li>
+        <li>
+            <img src="./images/index/evaluate_ico.png"/>
+            <h5>36氪</h5>
+            <p>从对标企业来看，国外的 Truecar 经历
+                一系列波折终于在今年上半年上市，目
+                前市值接近 15 亿美元国内的易车...</p>
+            <a href="#" class="evaluate_more">更多></a>
+        </li>
+        <li>
+            <img src="./images/index/evaluate_ico.png"/>
+            <h5>36氪</h5>
+            <p>从对标企业来看，国外的 Truecar 经历
+                一系列波折终于在今年上半年上市，目
+                前市值接近 15 亿美元国内的易车...</p>
+            <a href="#" class="evaluate_more">更多></a>
+        </li>
+    </ul>
+</div>
+<% include common/common_footer.ejs %>
+<div class="popup_order">
+</div>
+<div class="popup_orderPic">
+    <i class="popupOrder_close"></i>
+    <img src="/images/index/order_pic.png"/>
+</div>
+<script type="text/javascript">
+    window.templates = <%- JSON.stringify(templates) %>;
+</script>
+<script src="/js/lib/require.js" data-main="/js/index"></script>
+</body>
+</html>

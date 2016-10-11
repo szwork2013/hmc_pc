@@ -1,0 +1,23 @@
+<div class="direct_sale_recommend_list clearfix">
+  <div class="header">
+    <h2>4S店价高服务差？您可以选择好买车自营直销车</h2>
+    <h4>“现车底价+上门服务”的自营直销车由好买车买断车源，用户可在线预订，4S店提车。期间好买车提供<br/>
+      贷款、保险、上牌等全套上门服务，价格更低，服务升级，省钱有保障；
+      <a href="#">更多 &gt;</a>
+    </h4>
+  </div>
+  <ul>
+    <%for(var i = 0; i < 4; i++){%>
+      <li>
+        <a href="/direct_sale_detail/<%-dsCarRecommendList[i].modelType%>/<%-dsCarRecommendList[i].dsCarId%>">
+          <span class="discount"><%-((dsCarRecommendList[i].dsrp/dsCarRecommendList[i].msrp)*10).toFixed(1)%>折</span>
+          <img src="<%-dsCarRecommendList[i].modelPhoto%>" />
+          <h3><%-dsCarRecommendList[i].modelBrandName%>&nbsp<%-dsCarRecommendList[i].modelTypeName%></h3>
+          <h4><%-dsCarRecommendList[i].modelName%><br/>（送5000装潢包）</h4>
+          <h5><%-(dsCarRecommendList[i].dsrp/10000).toFixed(2)%>万<strike><%-(dsCarRecommendList[i].msrp/10000).toFixed(2)%>万</strike></h5>
+        </a>
+      </li>
+    <%}%>
+  </ul>
+  <a class="more_direct_sale" href="/direct_sale_list/carBrand/carType/minPrice/maxPrice/descType">查看更多直销车</a>
+</div>

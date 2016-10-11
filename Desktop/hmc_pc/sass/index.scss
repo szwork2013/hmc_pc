@@ -1,0 +1,854 @@
+@import 'common/reset';
+@import 'common/variables';
+@import 'common/mixins';
+@import 'common/footer';
+@import 'modules/carModel';
+#header{
+  height:70px;
+  width:100%;
+  position:fixed;
+  top:0;
+  z-index:90;
+}
+.header_mask{
+  height:70px;
+  width:100%;
+  background:#000;
+  opacity:0.2;
+  filter:alpha(opacity=20);
+}
+.header_wrap{
+  padding-top:15px;
+  height:70px;
+  position:relative;
+  top:-70px;
+  left:50%;
+  margin-left:-585px;
+  z-index:91;
+}
+.header_info{
+  padding-top:5px;
+  position:relative;
+  margin-left:640px;
+  .search_result{
+    background:url(../images/index/search_bg.png) no-repeat;
+    display:block;
+    width:16px;
+    height: 16px;
+    position:absolute;
+    top:14px;
+    right:15px;
+  }
+  .header_search{
+    width:194px;
+    padding:12px 0 10px 16px;
+    font-size:12px;
+    border-radius:15px;
+    -webkit-border-radius:15px;
+    color:#c2c2c1;
+    background:#656565;
+   &:focus{
+      background-color:#fff;
+      border-bottom:1px solid #e7e9ea;
+    }
+    &.list_active{
+      border-bottom-left-radius:0;
+      border-bottom-right-radius:0;
+    }
+  }
+}
+.header_carList{
+  padding-top:10px;
+  position:relative;
+  .carList_ico{
+    width:19px;
+    height:18px;
+    float:left;
+    background:url(../images/hmc_sprite.png) no-repeat -152px -61px;
+  }
+  .user_ico{
+    width:15px;
+    height:15px;
+    float:left;
+    margin-left:15px;
+    margin-top:2px;
+    background:url(../images/hmc_sprite.png) no-repeat -100px -63px;
+  }
+}
+.carModel_list{
+  width:300px;
+  position:absolute;
+  background:#fff;
+  top:55px;
+  right:0;
+  display:none;
+  &.active{
+    display:block;
+  }
+  &:after{
+    position:absolute;
+    width:19px;
+    content: '';
+    height:10px;
+    right:30px;
+    top:-10px;
+    display:block;
+    background:url(../images/hmc_sprite.png) no-repeat -330px -115px;
+  }
+  li{
+    overflow:hidden;
+    padding:18px 0 17px 10px;
+    border-bottom:1px solid #e7e9ea;
+    &:hover{
+      background:#f5f5f5;
+    }
+    img{
+      width:80px;
+      float:left;
+    }
+  }
+}
+.carMode_des{
+  margin-left:20px;
+  h5{
+    color:#363636;
+    font-weight:bold;
+  }
+  p{
+    color:#b8b8b8;
+    whit-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  span{
+    color:#b8b8b8;
+  }
+}
+.search_list{
+  position:absolute;
+  width:210px;
+  background:#fff;
+  top:40px;
+  overflow:auto;
+  max-height:250px;
+  display:none;
+  &.active{
+    display:block;
+  }
+  li{
+    background:#fff;
+    color:#464646;
+    line-height:30px;
+    height:30px;
+    padding-left:16px;
+    &:hover{
+      background:#f5f5f5;
+    }
+  }
+}
+.header_city_cat{
+  width:110px;
+  height:116px;
+  background:#fff;
+  position:absolute;
+  top:55px;
+  padding-top:16px;
+  left:0;
+  display:none;
+  &.active{
+    display:block;
+  }
+  &:after{
+    position:absolute;
+    width:19px;
+    content: '';
+    height:10px;
+    left:50px;
+    top:-10px;
+    display:block;
+    background:url(../images/hmc_sprite.png) no-repeat -330px -115px;
+  }
+  li{
+    height:40px;
+    line-height:40px;
+    text-align:center;
+    font-size:14px;
+    &.active{
+      a{
+        color:#09afec
+      }
+    }
+
+    a{
+      color:#363636;
+    }
+  }
+}
+.header_cityList{
+  width:110px;
+  padding-top:14px;
+  position:relative;
+  p{
+    text-align:center;
+    position:relative;
+    &.active{
+      .city_ico{
+        background:url(../images/hmc_sprite.png) no-repeat -353px -121px;
+        width:10px;
+        height:5px;
+        display:block;
+        position:absolute;
+        left:80px;
+        top:5px;
+      }
+    }
+  }
+  .city_ico{
+    background:url(../images/hmc_sprite.png) no-repeat -352px -113px;
+    width:10px;
+    height:5px;
+    display:block;
+    position:absolute;
+    left:80px;
+    top:5px;
+  }
+}
+.home-banner{
+  width:100%;
+  background:url(../images/index/banner_01.jpg) no-repeat center top;
+  height:640px;
+  overflow:hidden;
+  color:#fff;
+  min-width:1170px;
+  h3{
+    font-size:42px;
+    font-weight:bold;
+    margin:300px auto 0;
+    text-align:center;
+    line-height:70px;
+  }
+  p{
+    text-align:center;
+    cursor: pointer;
+  }
+  .banner-btns{
+    width:370px;
+    margin:80px auto 0;
+    li{
+      font-size:14px;
+      line-height:54px;
+      text-align:center;
+      &.active{
+        font-size:16px;
+        background:#09afec;
+       a{
+         text-decoration: none;
+       }
+      }
+      a{
+        display:block;
+        color:white;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+.brand-list-menu{
+  padding-top:32px;
+  width:100000px;
+  position:relative;
+  li{
+    width:110px;
+    text-align:center;
+    float:left;
+    img{
+      width:38px;
+    }
+  }
+}
+.brand-list{
+  position:relative;
+  .brand-prev{
+     width:8px;
+     height:12px;
+     display:block;
+     background:url(../images/hmc_sprite.png) no-repeat -180px -16px;
+    position:absolute;
+    left:30px;
+    top:44px;
+   }
+  .brand-next{
+    width:8px;
+    height:12px;
+    display:block;
+    background:url(../images/hmc_sprite.png) no-repeat -218px -16px;
+    position:absolute;
+    right:30px;
+    top:44px;
+  }
+}
+.home-title{
+  color:#363636;
+  text-align:center;
+  padding:60px 0 46px;
+  position:relative;
+  h5{
+    font-size:24px;
+  }
+  p{
+    font-size:14px;
+    margin-top:10px;
+  }
+  .home-title-more{
+    color:#09afec;
+    font-size:14px;
+    position:absolute;
+    right:0;
+    top:90px;
+  }
+}
+.brand-list-wrap{
+  margin:0 auto;
+  width:1100px;
+  overflow:hidden;
+}
+.hot-carList{
+  overflow:hidden;
+}
+.hot-carList-menu{
+  width:1200px;
+  li{
+    width:270px;
+    text-align:center;
+    margin-right:30px;
+    float:left;
+    background:#eff5f7;
+    margin-bottom:30px;
+    padding-bottom:20px;
+    img{
+      width:200px;
+    }
+    p{
+      font-size:16px;
+      color:#363636;
+      margin-top:20px;
+    }
+    span{
+      padding-top:10px;
+      display:block;
+      color:#808283;
+    }
+  }
+}
+.home-map{
+  height:643px;
+  background:url(../images/index/home_map.png) no-repeat;
+  min-width:1170px;
+}
+.home-map-wrap{
+  padding-top:30px;
+  position:relative;
+}
+.map-menu{
+  height:53px;
+  li{
+    width:170px;
+    height:53px;
+    line-height:53px;
+    text-align:center;
+    color:#2a2a2a;
+    background:#fff;
+    position:relative;
+    float:left;
+    margin-right:30px;
+    a{
+      display:block;
+    }
+  }
+  .map-arrow{
+    width:12px;
+    height:8px;
+    display:block;
+    float:left;
+    background:url(../images/hmc_sprite.png) no-repeat -58px -18px;
+    position:absolute;
+    top:22px;
+    right:20px;
+    z-index:10;
+  }
+  .map-arrow-active{
+    background-position:-16px -18px;
+  }
+}
+.map-tab{
+  padding:20px 0 0 30px;
+  background:#fff;
+  height:400px;
+  width:370px;
+  margin-top:10px;
+  overflow-y:auto;
+  display:none;
+  position:absolute;
+}
+.map-area-menu{
+  height:356px;
+  overflow:auto;
+  width:110px;
+  li{
+    a{
+      color:#2a2a2a;
+      &.active{
+        color:#09afec;
+      }
+    }
+  }
+}
+.map-area-list{
+  h4{
+    line-height:24px;
+
+  }
+  .map-area-menu{
+    li{
+      line-height:28px;
+      height:28px;
+    }
+  }
+}
+.mao-brand{
+  padding-left:12px;
+  padding-top:15px;
+}
+.map-cat{
+  overflow:hidden;
+  dd,dt{
+    float:left;
+    line-height:28px;
+  }
+  dt{
+    margin-right:24px;
+  }
+  dd{
+    width:160px;
+    margin-right:6px;
+    a{
+      display: inline-block;
+    }
+  }
+}
+.map-brand{
+  display:none;
+  h4{
+    line-height:30px;
+    i{
+      padding-left:24px;
+    }
+  }
+  .map-brand-cat{
+    dt,dd a{
+      color:#363636;
+    }
+    dd{
+      width:260px;
+    }
+  }
+}
+.member-list-pic{
+  width:268px;
+  padding:20px 0 20px 0;
+  background:#030a11;
+  height:600px;
+  h5{
+    line-height:56px;
+    padding-left:30px;
+    height:56px;
+    font-size:14px;
+    color:#fff;
+  }
+  .member-avatar{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+  }
+}
+.member-info{
+  overflow:hidden;
+}
+.member-list-menu{
+  width:257px;
+  li{
+    width:268px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    height:80px;
+    padding:20px 0 20px 30px;
+    position:relative;
+    &.active{
+      background:#1e252d;
+      .arrow-active{
+        width:11px;
+        height:23px;
+        display:block;
+        background:url(../images/index/home_car_arrow.png) no-repeat;
+        position:absolute;
+        right:-11px;
+        top:28px;
+      }
+    }
+  }
+}
+.member-avatar-txt{
+  padding-left:15px;
+  p{
+    color:#fff;
+    line-height:24px;
+  }
+  span{
+    color:#919293;
+  }
+}
+.member-list{
+  height:600px;
+  .loading{
+    display:block;
+    margin:0 auto;
+  }
+}
+.member-list-cont{
+  background:#e5e6e7;
+  width:1170px - 268px;
+}
+.friend-linkWrap{
+  margin-top:80px;
+  background:url(../images/index/link_bg.jpg) no-repeat center top;
+  height:690px;
+  width:100%;
+  position:relative;
+  min-width:1170px;
+}
+.friend-link-popup{
+  position:absolute;
+  width:100%;
+  height:130px;
+  background:rgba(14,26,39,0.8);
+  filter:alpha(opacity=80);
+  bottom:0;
+  left:0;
+}
+.friend-link{
+  padding-top:50px;
+  overflow:hidden;
+  >p{
+    color:#97999c;
+    text-align:center;
+    line-height:20px;
+  }
+  >h4{
+    margin-bottom:5px;
+    font-size:24px;
+    color:#fff;
+    text-align:center;
+  }
+  .friend-link-more{
+    height:50px;
+    border:2px solid white;
+    font-size:16px;
+    color:#fff;
+    width:366px;
+    text-align:center;
+    display:block;
+    line-height:50px;
+    margin:80px auto 90px;
+  }
+}
+.friend-link-menu{
+  width:1200px;
+  height:140px;
+  margin-top:68px;
+  li{
+    width:170px;
+    height:70px;
+    margin-right:28px;
+    float:left;
+    text-align:center;
+  }
+}
+.friend-link-service{
+  width:1170px;
+  margin:0 auto;
+  padding:45px 0;
+  li{
+    float:left;
+    padding-left:66px;
+    position:relative;
+    margin-right:82px;
+    i{
+      width:45px;
+      height:45px;
+      display:block;
+      background:url(../images/hmc_sprite.png) no-repeat;
+      position:absolute;
+      left:0;
+      top:0;
+    }
+    .service-ico1{
+      background-position:-81px -401px;
+    }
+    .service-ico2{
+      background-position:-151px -404px;
+    }
+    .service-ico3{
+      background-position:-219px -400px;
+    }
+    .service-ico4{
+      background-position:-288px -404px;
+    }
+    .service-ico5{
+      background-position:-357px -401px;
+    }
+    &.no_margin{
+      margin-right:0;
+    }
+  }
+  p{
+    font-size:18px;
+    color:rgba(239,245,247,0.6);
+    filter:alpha(opacity=60);
+  }
+  span{
+    color:rgba(239,245,247,0.6);
+    filter:alpha(opacity=60);
+  }
+}
+.evaluate{
+  overflow:hidden;
+}
+.evaluate_list{
+  width:1200px;
+  overflow:hidden;
+  padding-bottom:72px;
+  li{
+    box-sizing:border-box;
+    -webkit-box-sizing: border-box;
+    float:left;
+    padding:30px 20px 30px 20px;
+    width:270px;
+    background:#09afec;
+    color:#fff;
+    margin-right:30px;
+  }
+  h5{
+    font-size:14px;
+  }
+  p {
+    margin-top:26px;
+    font-size: 13px;
+  }
+  .evaluate_more{
+    line-height:20px;
+    color:#fff;
+    padding-top:30px;
+    display:block;
+    text-align:right;
+  }
+}
+.track_records{
+  overflow:auto;
+  height:600px;
+  float:left;
+  width:1170px - 268px;
+  padding-left:30px;
+  background:#e5e6e7;
+  ol{
+    margin-top:42px;
+    li{
+      margin-bottom:0px;
+      span, div{
+        display:inline-block;
+        vertical-align:top;
+      }
+      span{
+        margin-top:-8px;
+      }
+      .user_info{
+        border-left:2px solid #fff;
+        padding-bottom:45px;
+        position:relative;
+        &.active{
+          .track_circle{
+            background:$gray;
+            i{
+              border:1px solid $white;
+              width:4px;
+              height:4px;
+              background:$gray;
+            }
+          }
+        }
+      }
+      .track_time{
+        width:88px;
+        float:left;
+        color:$line_dark_gray;
+      }
+      .track_circle{
+        position:absolute;
+        top:0px;
+        left:-6px;
+        width:10px;
+        height:10px;
+        background:#fff;
+        border-radius:5px;
+        i{
+          position:absolute;
+          top:2px;
+          left:2px;
+          display:inline-block;
+          width:4px;
+          height:4px;
+          border-radius:10px;
+          background:#ebeced;
+          border:1px solid #ebeced;
+        }
+      }
+      .track_type{
+        height:26px;
+        width:90px;
+        font-weight:bold;
+        color:$gray;
+        padding-left:26px;
+      }
+      .track_content{
+        line-height:18px;
+        margin-top:-10px;
+      }
+      .track_line{
+        margin-left:26px;
+        margin-top:2px;
+        width:700px;
+        height:10px;
+        border-bottom:1px dashed $line_gray;
+        position:absolute;
+      }
+      .track_image{
+        padding-left:77px;
+        margin-top:8px;
+        width:680px;
+        img{
+          width:auto;
+          height:60px;
+          padding-right:8px;
+          padding-bottom:8px;
+        }
+      }
+    }
+  }
+}
+.first_use{
+  width:100%;
+  min-width:1170px;
+  height:580px;
+  display:none;
+  background:url(../images/index/first_use_bg.jpg) no-repeat center top;
+}
+.fist_use_wrap{
+  width:1170px;
+  margin:0 auto;
+  text-align:center;
+  position:relative;
+  .firstUser_close{
+    position:absolute;
+    width:30px;
+    height:30px;
+    top:80px;
+    right:22px;
+    background:url(../images/hmc_sprite.png) no-repeat -515px -56px;
+  }
+  .select_car_btn{
+    height: 50px;
+    border: 2px solid white;
+    font-size: 16px;
+    color: #fff;
+    width: 370px;
+    text-align: center;
+    display: block;
+    line-height: 50px;
+    margin: 80px auto 0;
+  }
+  h4{
+    font-size:24px;
+    color:#fff;
+    padding:66px 0 15px;
+  }
+  p{
+    color:#babbbd;
+    line-height:20px;
+    font-size:14px;
+  }
+}
+.select_use_info{
+  width:1170px;
+  margin:92px 0 0 105px;
+  overflow:hidden;
+  li{
+    float:left;
+    margin-right:114px;
+  }
+  i{
+    background:url(../images/hmc_sprite.png) no-repeat;
+    width:44px;
+    height:44px;
+    display:block;
+    margin:0 auto 26px;
+  }
+  .use_ico1{
+    background-position:-382px -94px;
+  }
+  .use_ico2{
+    background-position:-382px -94px;
+  }
+  .use_ico3{
+    background-position:-382px -94px;
+  }
+}
+.popup_order{
+  position:fixed;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.8);
+  opacity:0.8;
+  z-index:100;
+  display:none;
+  &.active{
+    display:block;
+  }
+}
+.popup_orderPic{
+  text-align:center;
+  position:fixed;
+  width:970px;
+  left:50%;
+  top:30px;
+  margin-left:-485px;
+  height:590px;
+  overflow:auto;
+  display:none;
+  z-index:101;
+  &.active{
+    display:block;
+  }
+  .popupOrder_close{
+    width: 24px;
+    height: 24px;
+    background: url(../images/hmc_sprite.png) no-repeat -423px -58px;
+    display: block;
+    position: fixed;
+    left: 50%;
+    margin-left:475px;
+    top: 20px;
+    z-index:10000;
+  }
+}
+

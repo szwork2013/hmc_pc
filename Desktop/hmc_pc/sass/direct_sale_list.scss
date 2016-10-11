@@ -1,0 +1,287 @@
+@import 'common/reset';
+@import 'common/variables';
+@import 'common/mixins';
+@import 'common/header';
+@import 'common/footer';
+@import 'modules/purchase';
+body{
+  background:#f6f6f6;
+}
+.banner{
+  width:100%;
+  background:#000;
+  height:188px;
+  min-width:1170px;
+  .banner_close{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top:72px;
+    left:50%;
+    margin-left:555px;
+    background: url(../images/hmc_sprite.png) no-repeat -515px -56px;
+  }
+}
+.banner_list{
+  width:1000000px;
+  height:188px;
+  position:relative;
+  li{
+    float:left;
+    width:1170px;
+    img{
+      width:100%;
+      height:188px;
+    }
+  }
+}
+.banner_wrap{
+  width:1170px;
+  overflow:hidden;
+  margin:0 auto;
+  position:relative;
+}
+.banner_btn{
+  width:1170px;
+  height:22px;
+  position:absolute;
+  left:50%;
+  margin-left:-575px;
+  bottom:0;
+  a{
+    width:10px;
+    height:10px;
+    float:left;
+    margin-right:10px;
+    border-radius:50%;
+    -webkit-border-radius:50%;
+    background:#fdfdfd;
+    opacity:0.4;
+    filter:alpha(opacity=40);
+    &.active{
+      background:#fdfdfd;
+      opacity:1;
+      filter:alpha(opacity=100);
+  }
+  }
+}
+.nav_link{
+  height:40px;
+  line-height:32px;
+  a{
+    color:#363636;
+    padding-right:5px;
+  }
+}
+.carList{
+  width:1170px;
+  margin:0 auto;
+  padding-bottom:100px;
+  position:relative;
+}
+.carList_cat{
+  h4{
+    font-size:14px;
+    color: #363636;
+    line-height:40px;
+    font-weight:bold;
+  }
+}
+.carList_cont{
+  width:336px;
+  padding-left:56px;
+  background:#fff;
+  padding-bottom:22px;
+  min-height:100%;
+}
+.carList_menu{
+  overflow:hidden;
+  li{
+    width:84px;
+    float:left;
+    line-height:26px;
+    &.active{
+      a{
+        color:#09afec;
+      }
+    }
+    a{
+      color: #363636;
+    }
+  }
+}
+.carList_pic{
+  width:824px;
+}
+.carList_sort{
+  height:40px;
+  line-height:40px;
+  background:white;
+  padding-right:29px;
+  text-align:right;
+  a{
+    color:#363636;
+    &.active{
+      color:#09afec;
+  }
+  }
+}
+.carList_model{
+  li{
+    overflow:hidden;
+    background:#fff;
+    margin-top:10px;
+    padding:0 30px 27px 36px;
+    position:relative;
+    img{
+      float:left;
+      margin-top:20px;
+      width:180px;
+    }
+    &.active{
+      .carList_circle{
+        filter:alpha(opacity=20);
+        opacity:0.2;
+      }
+      img{
+        filter:alpha(opacity=30);
+        opacity:0.3;
+      }
+      .carList_model_des{
+        em{
+          color:#d8d8d8;
+        }
+        p{
+          color:#d8d8d8;
+        }
+        span{
+          color:#d8d8d8;
+          border-color:#d8d8d8;
+        }
+      }
+      .carList_model_price{
+        p{
+          font-size:22px;
+          color:#d5d6d8;
+          i{
+            background:#d5d6d8;
+            filter:alpha(opacity=70);
+            opacity:0.7;
+          }
+        }
+        strong{
+          color:#d8d8d8;
+        }
+        span{
+          color:#d8d8d8;
+        }
+      }
+    }
+  }
+  .carList_circle{
+    width:54px;
+    height:54px;
+    line-height:54px;
+    text-align:center;
+    display:block;
+    position:absolute;
+    background:#3abff0;
+    border-radius:50%;
+    -webkit-border-radius:50%;
+    font-size:16px;
+    color:#fff;
+    top:10px;
+    left:10px;
+  }
+}
+.carList_model_des{
+  padding-top:36px;
+  padding-left:35px;
+  color:#363636;
+  line-height:20px;
+  em{
+    font-size:14px;
+    font-weight:bold;
+  }
+  p{
+    margin-bottom:12px;
+  }
+  span{
+    font-weight:bold;
+    border-right:2px solid #363636;
+    padding:0 5px;
+    &.last{
+      border-right:0;
+    }
+  }
+}
+.carList_model_price{
+  p{
+    font-size:22px;
+    color:#09afec;
+    padding-top:52px;
+    margin-bottom:12px;
+    text-align:right;
+    i{
+      font-size:12px;
+      color:#fff;
+      width:90px;
+      height:18px;
+      line-height:18px;
+      text-align:center;
+      float:left;
+      position:relative;
+      top:5px;
+      left:20px;
+      background:#727272;
+    }
+  }
+  strong{
+    font-weight:bold;
+    text-decoration: line-through;
+  }
+  span{
+    font-weight:bold;
+    color:#363636;
+  }
+}
+.carList_more,.carList_empty{
+  height:80px;
+  line-height:70px;
+  font-size:14px;
+  text-align:center;
+  a{
+    color:#09afec;
+  }
+}
+.carList_empty{
+  display:none;
+}
+.purchasing{
+  padding:36px 30px 30px 38px;
+  background:#fff;
+  img{
+    float:left;
+  }
+  .purchasing_btn{
+    margin-top:24px;
+    float:right;
+    width:196px;
+    height:45px;
+    line-height:45px;
+    text-align:center;
+    background:#09afec;
+    font-size:14px;
+    color:#fff;
+  }
+}
+.purchasing_des{
+  color:#363636;
+  margin-left:40px;
+  text-align:right;
+  padding-top:26px;
+  p{
+    font-size:14px;
+    font-weight:bold;
+  }
+}

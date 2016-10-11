@@ -1,0 +1,372 @@
+@import 'common/reset';
+@import 'common/variables';
+@import 'common/mixins';
+@import 'common/header';
+@import 'common/footer';
+@import 'modules/direct_sale_recommend_list';
+@import 'modules/user_activity_track';
+@import 'modules/car_config';
+@import 'modules/car_parity_detail/breadcrumb';
+@import 'modules/car_parity_detail/car_info';
+@import 'modules/car_parity_detail/history_price_list';
+@import 'modules/car_parity_detail/car_model';
+@import 'modules/car_parity_detail/car_images';
+@import 'modules/car_parity_detail/shop_map';
+@import '../public/js/plugins/fotorama/fotorama';
+@import '../public/js/plugins/fresco/fresco';
+@import 'modules/ad_banner';
+@import 'modules/login_register';
+
+
+.car_details{
+  @include width_align_center;
+  .car_details_tabs{
+    padding:28px 0;
+    float:left;
+    ul{
+      li{
+        float:left;
+        width:170px;
+        height:40px;
+        line-height:40px;
+        text-align:center;
+        background:$bg_light_red;
+        border:1px solid $line_gray;
+        font-size:14px;
+        font-weight:bold;
+        margin-right:10px;
+        padding-left:14px;
+        cursor:pointer;
+        &.active{
+          background:$bg_dark_gray;
+          color:$white;
+          &.car_model{
+            background:$bg_dark_gray url('/images/car_parity_detail/car_model_icon_active.png') no-repeat 64px center;
+          }
+          &.car_images{
+            background:$bg_dark_gray url('/images/car_parity_detail/car_images_icon_active.png') no-repeat 66px center;
+          }
+          &.car_config{
+            background:$bg_dark_gray url('/images/car_parity_detail/car_config_icon_active.png') no-repeat 66px center;
+          }
+        }
+        &.car_model{
+          background:$bg_light_red url('/images/car_parity_detail/car_model_icon.png') no-repeat 64px center;
+        }
+        &.car_images{
+          background:$bg_light_red url('/images/car_parity_detail/car_images_icon.png') no-repeat 66px center;
+        }
+        &.car_config{
+          background:$bg_light_red url('/images/car_parity_detail/car_config_icon.png') no-repeat 66px center;
+        }
+      }
+    }
+  }
+  .car_details_content{
+    clear:both;
+    float:left;
+  }
+}
+
+.price_curve{
+  height:590px;
+  background:$white;
+}
+
+.shop_map_wrap{
+  @include module_header;
+  width:100%;
+  padding-top:100px;
+}
+
+.ad_banner_wrap{
+  padding-bottom:40px;
+}
+
+.comparePricePopup{
+  cursor:pointer;
+}
+
+.purchaseDemand{
+  display:none;
+  width:100%;
+  height:100%;
+  position: fixed;
+  top:0;
+  background-color:rgba(0,0,0,0.5);
+  .purchaseDemandContent{
+    position:relative;
+    width:970px;
+    height:590px;
+    background-color:$white;
+    margin:0 auto;
+    margin-top:30px;
+    .close{
+      width:25px;
+      height:25px;
+      background-image: url(/images/hmc_sprite.png);
+      background-position:-423px -58px;
+      position:absolute;
+      border-radius:50%;
+      z-index:20;
+      right:-10px;
+      top:-10px;
+      cursor:pointer;
+    }
+    .back,.forword{
+      color:$black;
+      font-weight:bold;
+      display:inline-block;
+      position:absolute;
+      top:45px;
+    }
+    .back{
+      left:36px;
+    }
+    .title{
+      text-align:center;
+      font-size:20px;
+      font-weight:bold;
+      color:$gray;
+      padding-top:45px;
+    }
+    .demand{
+      padding-top:50px;
+      .demandTitle{
+        width:570px;
+        height:140px;
+        background-color:$bg_light_blue;
+        margin:0 auto;
+        text-align:center;
+        h3{
+          font-size:18px;
+          font-weight:bold;
+          color:$gray;
+          padding-top:30px;
+          padding-bottom:15px;
+        }
+        h6{
+          font-weight:bold;
+          color:#525353;
+          padding-bottom:5px;
+        }
+        p{
+          width:490px;
+          margin:0 auto;
+        }
+      }
+      img{
+        margin:40px auto 60px auto;
+        display: block;
+      }
+      .nextStep{
+        width:370px;
+        height:55px;
+        line-height:55px;
+        background-color:$blue;
+        margin:0 auto;
+        color:$white;
+        font-size:18px;
+        font-weight:bold;
+        text-align:center;
+        cursor:pointer;
+      }
+    }
+    .type{
+      display:none;
+    }
+    .color{
+      display:none;
+      ul{
+        width:810px;
+        margin:0 auto;
+        margin-top:110px;
+        li{
+          display:inline-block;
+          width:100px;
+          height:140px;
+          vertical-align:top;
+          div{
+            width:60px;
+            height:60px;
+            border-radius:50%;
+            border:1px solid $line_dark_gray;
+            margin:0 auto;
+          }
+          p{
+            text-align:center;
+            margin:15px auto 0 auto;
+            width:70px;
+            word-break: break-all;
+            height:32px;
+          }
+        }
+      }
+    }
+    .license{
+      display:none;
+      .licenseType{
+        width:586px;
+        margin:0 auto;
+        margin-top:120px;
+        color:$black;
+        .licenseChoose{
+          margin-bottom:20px;
+          li{
+            width:170px;
+            height:60px;
+            line-height:60px;
+            text-align:center;
+            font-size:16px;
+            border:2px solid $line_dark_gray;
+            display:inline-block;
+            vertical-align:top;
+            margin-right:20px;
+          }
+          .active{
+            background-color:$blue;
+            color:$white;
+            border:2px solid $blue;
+          }
+        }
+        .household{
+          width:265px;
+          height:265px;
+          overflow-y: scroll;
+          border:2px solid $line_dark_gray;
+          padding-top:20px;
+          display:inline-block;
+          vertical-align:top;
+          p{
+            font-size:14px;
+            padding-left:15px;
+          }
+          li{
+            height:30px;
+            line-height:30px;
+            padding-left:15px;
+          }
+          li:hover{
+            background-color:$bg_light_red;
+          }
+          .common{
+            margin-top:35px;
+            margin-bottom:15px;
+            padding-bottom:15px;
+            border-bottom:1px dotted $line_dark_gray;
+          }
+        }
+        .city{
+          width:265px;
+          height:60px;
+          line-height:60px;
+          border:2px solid $line_dark_gray;
+          display:inline-block;
+          vertical-align:top;
+          margin-left:29px;
+          position: relative;
+          p{
+            font-size:14px;
+            padding-left:15px;
+          }
+          .cityDropdown{
+            width:15px;
+            height:35px;
+            background-image:url(/images/hmc_sprite.png);
+            background-position:-295px 0;
+            position: absolute;
+            right:10px;
+            top:5px;
+          }
+        }
+      }
+    }
+    .purchaseWay,.purchaseTime{
+      display:none;
+      ul{
+        width:780px;
+        margin:0 auto;
+        margin-top:200px;
+        li{
+          width:170px;
+          height:60px;
+          line-height:60px;
+          border:2px solid $line_dark_gray;
+          display:inline-block;
+          vertical-align:top;
+          margin:0 7px;
+          text-align:center;
+          font-size:14px;
+        }
+      }
+    }
+    .loginRegister{
+      display:none;
+    }
+    .almost{
+      display:none;
+      img{
+        display:block;
+        margin:100px auto 90px auto;
+      }
+      .quit,.realPrice{
+        width:370px;
+        height:55px;
+        line-height:55px;
+        text-align:center;
+        margin:0 auto;
+        margin-bottom:20px;
+        color:$white;
+        font-size:16px;
+        font-weight:bold;
+      }
+      .quit{
+        background-color:#d5d6d8;
+      }
+      .realPrice{
+        background-color:$blue;
+      }
+    }
+    .complete{
+      display:none;
+      .receiveTime{
+        width:760px;
+        height:590px;
+        display:inline-block;
+        vertical-align:top;
+        .title span{
+          color:$dark_blue;
+        }
+        img{
+          width:100%;
+          margin-top:30px;
+        }
+      }
+      .scan{
+        width:210px;
+        height:590px;
+        display:inline-block;
+        vertical-align:top;
+        background-color:$dark_blue;
+        position:absolute;
+        right:0;
+        top:0;
+        .scanContent{
+          width:115px;
+          margin:70px auto;
+          p{
+            font-size:17px;
+            color:$white;
+            font-weight:bold;
+            text-align:center;
+            margin-bottom:40px;
+          }
+          img{
+            margin-bottom:30px;
+          }
+        }
+      }
+    }
+
+  }
+}

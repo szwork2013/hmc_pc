@@ -1,0 +1,11 @@
+<h4>HOT<i>热销车型</i></h4>
+<%for(var i=0;i<brandList.length;i++){%>
+    <dl class="brand-cat">
+        <dt><%-brandList[i].spell%></dt>
+        <dd>
+            <%for (var j=0;j<brandList[i].list.length;j++){%>
+                <a class="brand-cat-item" href="javascript:;" data-brandid="<%-brandList[i].list[j].topBrandId%>"><%-brandList[i].list[j].brandName%></a>
+            <%}%>
+        </dd>
+    </dl>
+<%}%>

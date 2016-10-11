@@ -1,0 +1,31 @@
+@import 'variables';
+
+@mixin width_align_center{
+  width:$wrap_width;
+  margin:0 auto;
+}
+
+@mixin module_header{
+  .header{
+    h2{
+      font-size:24px;
+      text-align:center;
+      color:$gray;
+      margin-bottom:10px;
+    }
+    h4{
+      position:relative;
+      font-size:14px;
+      text-align:center;
+      line-height:20px;
+      margin-bottom:30px;
+      a{
+        color:$blue;
+        font-size:14px;
+        position:absolute;
+        top:0;
+        right:0;
+      }
+    }
+  }
+}

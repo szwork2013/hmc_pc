@@ -1,0 +1,175 @@
+[{
+  "featureType": "green",
+  "elementType": "all",
+  "stylers": {
+    "color": "#f2eeec"
+  }
+},
+{
+  "featureType": "manmade",
+  "elementType": "all",
+  "stylers": {
+    "color": "#f2eeec"
+  }
+},
+{
+  "featureType": "building",
+  "elementType": "all",
+  "stylers": {
+    "color": "#f2eeec",
+    "visibility": "off"
+  }
+},
+{
+  "featureType": "land",
+  "elementType": "all",
+  "stylers": {
+    "color": "#f2eeec"
+  }
+},
+{
+  "featureType": "water",
+  "elementType": "all",
+  "stylers": {
+    "color": "#aebcc6"
+  }
+},
+{
+  "featureType": "arterial",
+  "elementType": "geometry.fill",
+  "stylers": {
+    "color": "#f7f4f4"
+  }
+},
+{
+  "featureType": "arterial",
+  "elementType": "geometry.stroke",
+  "stylers": {
+    "color": "#e8e4e1"
+  }
+},
+{
+  "featureType": "arterial",
+  "elementType": "labels.text.fill",
+  "stylers": {
+    "color": "#d4d0cd"
+  }
+},
+{
+  "featureType": "arterial",
+  "elementType": "labels.text.stroke",
+  "stylers": {
+    "color": "#d8d5d3",
+    "weight": "0.1",
+    "lightness": 88,
+    "saturation": 100
+  }
+},
+{
+  "featureType": "highway",
+  "elementType": "geometry.fill",
+  "stylers": {
+    "color": "#eae7e5"
+  }
+},
+{
+  "featureType": "highway",
+  "elementType": "geometry.stroke",
+  "stylers": {
+    "color": "#e1dbda"
+  }
+},
+{
+  "featureType": "highway",
+  "elementType": "labels.text.fill",
+  "stylers": {
+    "color": "#d2c7c5"
+  }
+},
+{
+  "featureType": "highway",
+  "elementType": "labels.text.stroke",
+  "stylers": {
+    "color": "#f5f2f2"
+  }
+},
+{
+  "featureType": "local",
+  "elementType": "geometry.fill",
+  "stylers": {
+    "color": "#fcf9f7"
+  }
+},
+{
+  "featureType": "local",
+  "elementType": "geometry.stroke",
+  "stylers": {
+    "color": "#f2ece9"
+  }
+},
+{
+  "featureType": "local",
+  "elementType": "labels",
+  "stylers": {
+    "visibility": "off"
+  }
+},
+{
+  "featureType": "railway",
+  "elementType": "all",
+  "stylers": {
+    "visibility": "off"
+  }
+},
+{
+  "featureType": "subway",
+  "elementType": "geometry.fill",
+  "stylers": {
+    "lightness": 60,
+    "saturation": -74
+  }
+},
+{
+  "featureType": "subway",
+  "elementType": "labels.text.fill",
+  "stylers": {
+    "lightness": 60,
+    "saturation": -74
+  }
+},
+{
+  "featureType": "poi",
+  "elementType": "all",
+  "stylers": {
+    "lightness": 60,
+    "saturation": -74
+  }
+},
+{
+  "featureType": "subway",
+  "elementType": "labels.icon",
+  "stylers": {
+    "visibility": "off"
+  }
+},
+{
+  "featureType": "poi",
+  "elementType": "labels.icon",
+  "stylers": {
+    "visibility": "off"
+  }
+},
+{
+  "featureType": "boundary",
+  "elementType": "all",
+  "stylers": {
+    "visibility": "off"
+  }
+},
+{
+  "featureType": "label",
+  "elementType": "all",
+  "stylers": {
+    "visibility": "off"
+  }
+}]

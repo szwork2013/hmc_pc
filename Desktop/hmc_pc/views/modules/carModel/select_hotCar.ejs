@@ -1,0 +1,18 @@
+<div class="home-brand-des fl">
+    <img src="http://www.haomaiche.com//upload/finalFileDir/brand/d5092878425b48069e452d18d97530a5.png"/>
+    <div class="home-brand-txt">
+        <p>热门车型</p>
+    </div>
+</div>
+<div class="home-brand-img fl">
+    <ul class="home-brand-pic">
+        <%for(var j=0;j<hotCar.length;j++){%>
+        <li>
+            <a href="/car_parity_detail/<%-hotCar[j].typeId%>">
+                <img src="<%-hotCar[j].tpicPath%>"/>
+                <span><%-hotCar[j].typeName%></span>
+            </a>
+        </li>
+        <%}%>
+    </ul>
+</div>

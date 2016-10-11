@@ -1,0 +1,40 @@
+.ad_banner{
+  @include width_align_center;
+  position:relative;
+  img{
+    width:$wrap_width;
+    height:187px;
+    display:inline-block;
+  }
+}
+
+.fotorama__nav--dots{
+  .fotorama__nav__frame{
+    position:relative;
+    bottom:0;
+    right:0;
+  }
+}
+.fotorama__dot{
+  width:10px;
+  height:10px;
+  background:$bg_dark_gray;
+  border-color:$bg_dark_gray;
+  opacity:0.6;
+}
+.fotorama__nav__frame.fotorama__active {
+  .fotorama__dot{
+    width:10px;
+    height:10px;
+    background:$white;
+    border-color:$white;
+    opacity:1;
+  }
+}
+.fotorama__nav--dots{
+  width:auto!important;
+  float:right;
+  position:relative;
+  top:-34px;
+  right:10px;
+}

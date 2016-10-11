@@ -1,0 +1,14 @@
+@import '../../common/variables';
+@import '../../common/mixins';
+
+.breadcrumb{
+  @include width_align_center;
+  p{
+    margin:10px 0 20px;
+    span{
+      padding-right:4px;
+      font-size:12px;
+      color:$gray;
+    }
+  }
+}

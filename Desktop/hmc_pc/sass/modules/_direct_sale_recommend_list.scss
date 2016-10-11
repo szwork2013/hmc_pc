@@ -1,0 +1,82 @@
+@import '../common/variables';
+@import '../common/mixins';
+
+.direct_sale_recommend_wrap{
+  padding:62px 0 70px;
+}
+.direct_sale_recommend_list{
+  @include width_align_center;
+  @include module_header;
+  ul{
+    text-align:center;
+    li{
+      float:left;
+      width:($wrap_width - 90px) / 4;
+      height:280px;
+      box-sizing:border-box;
+      position:relative;
+      text-align:center;
+      background:$bg_light_blue;
+      margin:0 15px;
+      margin-bottom:70px;
+      a{
+        display: inline-block;
+        width:100%;
+        height:100%;
+      }
+      &.first{
+        margin-left:0;
+      }
+      &.last{
+        margin-right:0;
+      }
+      span{
+        position:absolute;
+        right:10px;
+        top:10px;
+        width:54px;
+        height:54px;
+        line-height:54px;
+        background:$blue;
+        border-radius:27px;
+        font-size:16px;
+        color:$white;
+      }
+      img{
+        width:auto;
+        height:150px;
+      }
+      h3{
+        font-size:16px;
+        margin-top:20px;
+        color:$gray;
+      }
+      h4{
+        font-size:12px;
+        font-weight:normal;
+        color:$line_dark_gray;
+        margin-top:8px;
+      }
+      h5{
+        font-size:16px;
+        color:$gray;
+        margin-top:16px;
+        strike{
+          font-size:12px;
+          padding-left:10px;
+        }
+      }
+    }
+  }
+  .more_direct_sale{
+    display:inline-block;
+    width:370px;
+    height:54px;
+    margin:0 ($wrap_width - 370px) / 2;
+    font-size:16px;
+    line-height:54px;
+    background:$blue;
+    color:$white;
+    text-align:center;
+  }
+}

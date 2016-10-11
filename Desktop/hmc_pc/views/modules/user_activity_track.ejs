@@ -1,0 +1,51 @@
+<div class="user_activity_track clearfix">
+  <div class="header">
+    <h2>和老会员一起，深入了解好买车</h2>
+    <h4>看看粉丝们是如何评价好买车，希望您在享受会员服务后，晒出中肯的评价！</h4>
+  </div>
+  <div class="user_activity_track_details">
+    <p class="label">
+      <span class="user_label">晒单者</span>
+      <span>用户轨迹</span>
+    </p>
+    <ul>
+      <%for(var i = 0; i < dsCarOldUser.timelineUsers.length; i++){%>
+        <li class="has_bottom_border">
+          <div class="user_info">
+            <div class="img_wrap">
+              <img src="<%-dsCarOldUser.timelineUsers[i].user.timelineUserPic%>" />
+            </div>
+            <p>
+              <%-dsCarOldUser.timelineUsers[i].user.timelineUserName%><br/>
+              <%-dsCarOldUser.timelineUsers[i].user.timelinePhone%>
+            </p>
+          </div>
+          <div class="track_records">
+            <ol>
+              <%for(var j = 0; j < dsCarOldUser.timelineUsers[i].timelines.length; j++){%>
+                <li>
+                  <span class="track_time"><%-dsCarOldUser.timelineUsers[i].timelines[j].timelineTime%></span>
+                  <div>
+                    <span class="track_circle"><i></i></span>
+                    <span class="track_type"><%-dsCarOldUser.timelineUsers[i].timelines[j].timelineType%></span>
+                    <span class="track_content"><%-dsCarOldUser.timelineUsers[i].timelines[j].timelineContent%></span><br/>
+                    <span class="track_image">
+                      <%for(var k = 0; k < dsCarOldUser.timelineUsers[i].timelines[j].images.length; k++){%>
+                        <a href="<%-dsCarOldUser.timelineUsers[i].timelines[j].images[k].imageUrl%>" class='fresco' data-fresco-group='user_track_img'>
+                          <img src="<%-dsCarOldUser.timelineUsers[i].timelines[j].images[k].imageUrl%>" />
+                        </a>
+                      <%}%>
+                    </span>
+                  </div>
+                </li>
+              <%}%>
+            </ol>
+          </div>
+        </li>
+      <%}%>
+    </ul>
+    <p class="more_records clearfix">
+      <a href="#">查看更多</a>
+    </p>
+  </div>
+</div>

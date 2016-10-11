@@ -1,0 +1,148 @@
+.popup{
+  background:#000;
+  opacity:0.6;
+  filter:alpha(opactiy=60);
+  position:fixed;
+  width:100%;
+  height:100%;
+  left:0;
+  top:0;
+  z-index:100;
+  display:none;
+  &.active{
+    display:block;
+  }
+}
+.home-popup-cont{
+  &.active{
+    display:block;
+  }
+  position:fixed;
+  left:50%;
+  top:30px;
+  z-index:101;
+  display: none;
+  height:584px;
+  .popup-close{
+    width:24px;
+    height:24px;
+    background:url(../images/hmc_sprite.png) no-repeat -423px -58px;
+    display:block;
+    position:absolute;
+    right:-10px;
+    top:-10px;
+  }
+  width:1030px;
+  margin-left:-515px;
+  .home-popup-menu{
+    width:368px;
+    padding-left:25px;
+    padding-bottom:54px;
+    padding-top:50px;
+    background:#030a11;
+    h4{
+      line-height:30px;
+      i{
+        padding-left:20px;
+      }
+    }
+  }
+}
+.brand-cat{
+  padding-left:3px;
+  width:351px;
+  overflow-y:hidden;
+    position:relative;
+  &.active{
+    background:url(../images/index/home_car_arrow.png) no-repeat 343px center;
+  }
+  dt,dd{
+    float:left;
+  }
+  dt{
+    padding-right:25px;
+    line-height:30px;
+  }
+  dd{
+    width:230px;
+    line-height:30px;
+    a{
+      display:inline-block;
+      color:#fff;
+      padding-right:12px;
+      &.active{
+        color:#09afec;
+      }
+    }
+  }
+}
+.overflow{
+  overflow:hidden;
+  padding-right:15px;
+}
+.home-popup-pic{
+  background:#fff;
+  width:1030px - 368px;
+  height:584px;
+  .tips_txt{
+    color:#333;
+    margin-top:45%;
+    font-size:14px;
+  }
+}
+.home-brand-des{
+  width:192px;
+  text-align:center;
+  img{
+    margin:40px auto 0;
+    width:60px;
+  }
+  .home-brand-txt{
+    margin-top:160px;
+    p{
+      color:#363636;
+      &.active{
+        color:#09afec;
+      }
+    }
+  }
+}
+.home-brand-img{
+  height:584px;
+  width:470px;
+  overflow:auto;
+}
+.carType_menu{
+  li{
+    margin-bottom:28px;
+    a{
+      color:#363636;
+    }
+    &.active{
+      a{
+        color:#09afec;
+      }
+    }
+  }
+}
+.home-brand-pic{
+  padding-top:30px;
+  width:450px;
+  overflow:hidden;
+  li{
+    padding:20px 10px 0;
+    margin-right:10px;
+    margin-bottom:10px;
+    float:left;
+    background:#eff5f7;
+    span{
+      color:#363636;
+      display:block;
+      text-align:center;
+      margin:20px 0 20px;
+    }
+    img{
+      width:120px;
+    }
+  }
+}

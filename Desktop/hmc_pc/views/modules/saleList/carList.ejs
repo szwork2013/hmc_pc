@@ -1,0 +1,17 @@
+<%var list=saleList.recordList;for(var i=0;i<list.length;i++){%>
+<li <%if(list[i].carSold ==true){%>class="active"<%}%>>
+    <a href="/direct_sale_detail/<%-list[i].modelType%><%-"/"+list[i].modelId%>">
+        <i class="carList_circle"><%- (list[i].dsrp/list[i].msrp*10 || 0).toFixed(1)%>折</i>
+        <img src="<%-list[i].modelPhoto%>"/>
+        <div class="carList_model_des fl">
+            <em><%-list[i].modelBrandName%>  <%-list[i].modelTypeName%> </em>
+            <p><%-list[i].modelName%></p>
+            <%var tagList=(list[i].tagList || "").split("#");for(var j=0;j<tagList.length;j++){%><span <%if(j==tagList.length-1){%>class="last"<%}%>><%-tagList[j]%></span><%}%>
+        </div>
+        <div class="carList_model_price fr">
+            <p><i>好买车自营</i><%if(list[i].carSold ==true){%>已售罄<%}else{%><%=(list[i].dsrp/10000).toFixed(2)%>万<%}%></p>
+            <strong>官方指导价：<%=(list[i].msrp/10000).toFixed(2)%>万</strong><span>  ↓ 让利：<%-((list[i].msrp-list[i].dsrp)/10000).toFixed(2)%>万</span>
+        </div>
+    </a>
+</li>
+<%}%>

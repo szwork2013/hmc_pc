@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>好买车</title>
+    <link href="/style/direct_sale_detail.css" rel="stylesheet" />
+    <script data-main="/js/direct_sale_detail" src="/js/lib/require.js"></script>
+  </head>
+  <body>
+    <% include common/common_header.ejs %>
+    <!-- direct sale detail wrapper -->
+    <div class="direct_sale_wrapper">
+      <div class="indexTop">
+        <div class="leftImg">
+          
+            <div class="bigImg">
+              <%for(var i = 0; i < dsCarSlideImg.length; i++){%>
+                <img src="<%-dsCarSlideImg[i].tpicPath%>">
+              <%}%>
+            </div>
+            <div class="smallImg">
+              <div class="smallImgWrap">
+                <div class="smallImgContent">
+                  <ul>
+                    <%for(var i = 0; i < dsCarSlideImg.length; i++){%>
+                      <li><img src="<%-dsCarSlideImg[0].tpicPath%>"></li>
+                    <%}%>
+                  </ul>
+                  <div class="smallImgMask"></div>
+                </div>
+              </div>
+              <div class="smallLeftArrow"><</div>
+              <div class="smallRightArrow">></div>
+            </div>
+        </div>
+        <div class="middleChosen">
+          <%for(var i = 0; i < dsCarDetail.length; i++){%>
+            <% if (dsCarDetail[i].modelId == dsCarModelId) { %>
+              <p class="carType"><%-dsCarDetail[i].modelName%></p>
+              <p class="directPrice">好买车自营直销价:<b>￥<%- (dsCarDetail[i].dsrp/10000).toFixed(2)%>万</b><span>[裸车价]</span></p>
+              <p class="guidePrice">指导价：<span>￥<%- (dsCarDetail[i].msrp/10000).toFixed(2)%>万</span></p>
+              <p class="save">已节省：￥<span><%- ((dsCarDetail[i].msrp-dsCarDetail[i].dsrp)/10000).toFixed(2)%></span>万</p>
+              <div class="select">
+                <div class="carModel">
+                  <p><%-dsCarDetail[i].modelName%></p>
+                  <div class="dropdown"></div>
+                </div>
+                <div class="appearance">
+                  <p><%-dsCarDetail[i].modelColorName[0]%></p>
+                  <div class="dropdown"></div>
+                </div>
+                <div class="purchaseWay">
+                  <p><%-dsCarDetail[i].modelPaymentOption[0]%></p>
+                  <div class="dropdown"></div>
+                </div>
+                <div class="license">
+                  <p><%-dsCarDetail[i].modelLicenseOption[0]%></p>
+                  <div class="dropdown"></div>
+                </div>
+              </div>
+            <%}%>
+          <%}%>
+          <div class="dsDetailChosenPopup">
+            <div class="detailSelect">
+              <table>
+                <tbody>
+                  <%for(var i = 0; i < dsCarDetail.length; i++){%>  
+                      <tr class="carTypeOption">
+                          <td class="type">
+                            <a href="/direct_sale_detail/<%-dsCarDetail[i].modelType+'/'+dsCarDetail[i].modelId-%>">
+                              <%-dsCarDetail[i].modelName%>
+                            </a>
+                          </td>
+                          <td class="type">
+                            <a href="/direct_sale_detail/<%-dsCarDetail[i].modelType+'/'+dsCarDetail[i].modelId-%>">
+                              <span>￥<%- (dsCarDetail[i].dsrp/10000).toFixed(2)%>万</span>
+                            </a>
+                          </td>
+                        </a>
+                      </tr>
+                    <% if (dsCarDetail[i].modelId == dsCarModelId) { %>
+                      <tr>
+                        <%for(var j = 0; j < dsCarDetail[i].modelColorName.length; j++){%>
+                          <td class="color"><%-dsCarDetail[i].modelColorName[j]%></td>
+                        <%}%>
+                      </tr>
+                      <tr>
+                        <%for(var j = 0; j < dsCarDetail[i].modelPaymentOption.length; j++){%>
+                          <td class="payment"><%-dsCarDetail[i].modelPaymentOption[j]%></td>
+                        <%}%> 
+                      </tr>
+                      <tr>
+                        <%for(var j = 0; j < dsCarDetail[i].modelLicenseOption.length; j++){%>
+                          <td class="license"><%-dsCarDetail[i].modelLicenseOption[j]%></td>
+                        <%}%>
+                      </tr>
+                    <%}%>
+                  <%}%>
+                </tbody>
+              </table>
+            </div>
+            <div class="vipPurchase">
+              <p class="purchasing_btn">没有您想要的款型？请申请VIP代购</p>
+            </div>
+          </div>
+          <div class="gift">
+            <a href="http://www.haomaiche.com/advert/upgrade">
+              <img class="smallGift" src="/images/direct_sale_detail/smallGift.png">
+              <p class="giftContent">好买车赠送总价值<b>￥4598升级套装</b>，包含：Limooking贴膜、12in1急救套装、车载灭火器套装</p>
+            </a>
+          </div>
+          <div class="landprice"><a>查看落地总价</a></div>
+          <i>购车热线：400-097-8633</i>
+        </div>
+        <div class="insurance">
+          <img src="/images/direct_sale_detail/insurance.png">
+        </div>
+      </div>
+      <div class="price_curve_wrapper">
+        <h4>看看好买车自营直销车的价格优势</h4>
+        <h5>标致3008 2015款 1.6THP 手自一体 经典版  近30天成交记录的</h5>
+        <div class="price_curve">
+
+        </div>
+      </div>
+      <div class="direct_sale_recommend">
+        <% include modules/direct_sale_recommend_list %>
+      </div>
+      <div class="ad_banner">
+        <% include modules/ad_banner %>
+      </div>
+      <div class="directSaleTab">
+        <ul class="tabHead">
+          <li class="active">好买车服务及购车流程</li>
+          <li>会员赠送</li>
+          <li>车辆信息</li>
+          <li>晒单（4521）</li>
+          <li>常见问题</li>
+        </ul>
+        <ul class="tabContent">
+          <li class="serviceFlow header">
+            <h2>一起来感受下好买车自营提供的专业服务</h2>
+            <h4>专人为您服务购车全流程，上牌、贷款、保险、验车、提车轻松搞定</h4>
+            <ul class="flow">
+              <li class="first">
+                <p>在线预订</p>
+                <span>1</span>
+              </li>
+              <li>
+                <p>上门接送看车</p>
+                <span>2</span>
+              </li>
+              <li>
+                <p>办理贷款手续</p>
+                <span>3</span>
+              </li>
+              <li>
+                <p>4S店付全款</p>
+                <span>4</span>
+              </li>
+              <li>
+                <p>办理保险、临牌</p>
+                <span>5</span>
+              </li>
+              <li>
+                <p>提车、验车</p>
+                <span>6</span>
+              </li>
+              <li>
+                <p>上牌服务</p>
+                <span>7</span>
+              </li>
+              <li>
+                <p>装潢服务</p>
+                <span>8</span>
+              </li>
+              <div class="line"></div>
+              <div class="blueLine"></div>
+            </ul>
+            <div class="flowContent">
+              <div class="leftArrow"><</div>
+              <div class="rightArrow">></div>
+              <div class="middleContentWrap">
+                <div class="middleContent">
+                  <div>
+                    <img src="/images/direct_sale_detail/flow01.png">
+                    <h3>我们只提供现车，并坚持透明一口价、违约订金退一赔二保障</h3>
+                    <ul>
+                      <li>
+                        <span>A</span>
+                        <p>好买车自营直销车提供100%现车，用户所见即所得，无需等待，付款即可提车；</p>
+                      </li>
+                      <li>
+                        <span>B</span>
+                        <p>我们拒绝强制加装装潢，以及滥收各项额外费用，让您的每笔开销都清清楚楚；</p>
+                      </li>
+                      <li>
+                        <span>C</span>
+                        <p>好买车自营直销车坚持透明一口价，绝不含隐性收费，让您得到实实在在的优惠与放心；</p>
+                      </li>
+                      <li>
+                        <span>D</span>
+                        <p>订金支付后到店，如出现与订单价格不符时，好买车违约，承诺提供500元订金退一赔二保障；</p>
+                      </li>
+                      <li>
+                        <span>E</span>
+                        <p>用户在线支付500元订金，不买随时可退；</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <img src="/images/direct_sale_detail/flow02.png">
+                    <h3>无论您在郊县，还是市区，我们都为您提供上门接送服务</h3>
+                    <ul>
+                      <li>
+                        <span>A</span>
+                        <p>好买车自营直销车都来自上海300家合作4S店的正规车源；</p>
+                      </li>
+                      <li>
+                        <span>B</span>
+                        <p>在线预订后，好买车提供沪上唯一的上门接送用户去4S店看车服务，免去您来回奔波的劳累；</p>
+                      </li>
+                      <li>
+                        <span>C</span>
+                        <p>除了提供免费的矿泉水，接送路上，专业的服务顾问会为您讲解购车、用户的常用知识和流程；</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <img src="/images/direct_sale_detail/flow03.png">
+                    <h3>贷款这件麻烦事，我们会主动地为您操心，让您省心</h3>
+                    <ul>
+                      <li>
+                        <span>A</span>
+                        <p>我们首先会帮助用户梳理清楚自己的授信条件，推荐最适合的贷款方式和贷款银行；</p>
+                      </li>
+                      <li>
+                        <span>B</span>
+                        <p>如果汽车厂商有更加优惠的免息贷款活动，我们将推荐用户优先使用；</p>
+                      </li>
+                      <li>
+                        <span>C</span>
+                        <p>我们和最具品牌影响力的银行签约，开通绿色通道，确保用户可以优先走流程，快速审核、放贷；</p>
+                      </li>
+                      <li>
+                        <span>D</span>
+                        <p>我们主动地向您通报最新的流程进度，以及还款提醒；</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <img src="/images/direct_sale_detail/flow04.png">
+                    <h3>我们只和品牌授权4S店合作，开取正规的购车发票</h3>
+                    <ul>
+                      <li>
+                        <span>A</span>
+                        <p>4S店付款事宜，由好买车服务顾问全程陪同、代办；</p>
+                      </li>
+                      <li>
+                        <span>B</span>
+                        <p>我们会帮助用户检查4S店相关协议、资料是否正规；</p>
+                      </li>
+                      <li>
+                        <span>C</span>
+                        <p>我们合作的是汽车品牌授权的正规4S店，为您开取正规发票，享受国家的包退、包换、包修的三包保障；</p>
+                      </li>
+                      <li>
+                        <span>D</span>
+                        <p>您不必为今后的保养担忧，所售车辆在上海及全国所有同品牌4S店都可享受保养维修服务；</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <img src="/images/direct_sale_detail/flow05.png">
+                    <h3>我们只和品牌授权4S店合作，开取正规的购车发</h3>
+                    <ul>
+                      <li>
+                        <span>A</span>
+                        <p>我们全流程代办并赠送临牌（15天内市内临时牌照，新购车辆在未正式落户前的临时车辆行驶证明），让您可以早日开上新车；</p>
+                      </li>
+                      <li>
+                        <span>B</span>
+                        <p>我们和国内4大保险公司合作，并帮助用户解释每个险种的用途和出险、理赔流程；</p>
+                      </li>
+                      <li>
+                        <span>C</span>
+                        <p>如您在今后出险时，也可以第一时间拨打好买车客服电话，我们会及时为您协调相关理赔事宜；</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <img src="/images/direct_sale_detail/flow06.png">
+                    <h3>除了规范的验车流程，我们还提供极致的送车上门服务</h3>
+                    <ul>
+                      <li>
+                        <span>A</span>
+                        <p>好买车规范的10大验车流程、确保您的爱车周全开回家；</p>
+                      </li>
+                      <li>
+                        <span>B</span>
+                        <p>我们帮助用户检查、清点全部购车单据以及随车资料；</p>
+                      </li>
+                      <li>
+                        <span>C</span>
+                        <p>好买车服务顾问会为您耐心讲解车辆使用功能及注意事项；</p>
+                      </li>
+                      <li>
+                        <span>D</span>
+                        <p>我们为您送上实用、贴心的交车礼物；</p>
+                      </li>
+                      <li>
+                        <span>E</span>
+                        <p>如果您不方便前往4S店提车，我们甚至为您做到拖车送车上门服务，让您在家门口就能提到新车；</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <img src="/images/direct_sale_detail/flow07.png">
+                    <h3>沪牌可按揭、可代拍；外牌更是人车可不去，省钱又省力</h3>
+                    <ul>
+                      <li>
+                        <span>A</span>
+                        <p>我们提供代拍沪牌的服务，而且和黄牛不一样的是，我们签正规协议，承诺三次拍不中，赔付300元；</p>
+                      </li>
+                      <li>
+                        <span>B</span>
+                        <p>我们还提供沪牌按揭服务，让购车预算更轻松；</p>
+                      </li>
+                      <li>
+                        <span>C</span>
+                        <p>如果您上外牌，我们尽量就近提供人车都不去的上牌地区，帮您节约来回的上牌住宿、油费、路费；</p>
+                      </li>
+                      <li>
+                        <span>D</span>
+                        <p>如果您市内上牌，我们也同样可以提供上门服务，让您无需亲临上牌点，费时又费力；</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <img src="/images/direct_sale_detail/flow08.png">
+                    <h3>坚决不强制装潢，为您免费配备车用急救包及灭火器</h3>
+                    <ul>
+                      <li>
+                        <span>A</span>
+                        <p>我们坚决不强制装潢，只提供价值3500元的免费装潢套餐；</p>
+                      </li>
+                      <li>
+                        <span>B</span>
+                        <p>我们想得很周到，为您配置了必备的安全保障（12件车载车用急救安全包、车载灭火器、灭火器固定网兜等）</p>
+                      </li>
+                      <li>
+                        <span>C</span>
+                        <p>我们确保所有装潢都是正品，提供质保服务；</p>
+                      </li>
+                      <li>
+                        <span>D</span>
+                        <p>车辆贴膜可提供上门式服务，不占用额外时间，何时何地施工您说了算；</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="last">
+                    <p class="experience">希望您能感受到我们的用心与诚意，享受到好买车所带来的极致购车体验</p>
+                    <p class="entrust">如果我们提供的直销车没有您想要的款型，也可以委托好买车进行VIP代购服务，让专业的服务顾问根据您的需求，淘一辆底价好车</p>
+                    <div class="substituePurchase purchasing_btn">没车型？怕麻烦？找好买车代购 ></div>
+                  </div>
+                </div>
+              </div>
+              <div class="service">
+                <img src="/images/direct_sale_detail/service.png">
+              </div>
+            </div>
+          </li>
+          <li class="tabGift header">
+            <h2>我们考虑的很周到，为您免费配置必备的安全保障</h2>
+            <h4>免费赠送总价值￥4598元的升级配置</h4>
+            <img src="/images/direct_sale_detail/bigGift.png">
+            <div class="giftDetail"><a href="http://www.haomaiche.com/advert/upgrade">查看赠品详情</a></div>
+          </li>
+          <li class="tabPic header">
+            <h2>我们用精美大图为您展现车辆的颜值</h2>
+            <h4>看看该车的图片和配置是否满足您的要求</h4>
+            <div class="tabPicDetail">
+              <%for(var i =0; i < dsCarImgList.length; i++){%>
+                <p class="picContent"><%-dsCarImgList[i].modelPicsHtml%></p>
+              <%}%> 
+            </div>
+          </li>
+          <li class="oldUser">
+            <% include modules/user_activity_track %>
+          </li>
+          <li class="tabQuestion header">
+            <h2>您的问题和疑虑，我们为您打消</h2>
+            <h4>欢迎随时向我们提问，我们将及时回答您</h4>
+            <ul class="questionContent">
+              <li>
+                <b>Q1</b>
+                <div>
+                  <p class="question">你们的车价为什么这么便宜？</p>
+                  <p class="answer">我们做的是批发价，好买车与4S店签了包销协议，每月必须包销一定量，4S店给我们批发价。我们整合了所有4S店的优势资源，4S店有自己的门店有自己的营运成本，但网站没有，这是其一。第二，我们做的是资源整合，利用平台接触更多的购车用户，快进快出，走的是量，这就是价差的原因。</p>
+                </div>
+              </li>
+              <li>
+                <b>Q2</b>
+                <div>
+                  <p class="question">你们的车子是从哪里来的？</p>
+                  <p class="answer">我们所有车源都是4S店供货。好买车网站是和上海300家4S店合作的一个汽车询价购车平台，平台就是做资源整合和咨询的，所有车源全部都有三包凭证、整车质保，与4S店的新车无任何区别。</p>
+                </div>
+              </li>
+              <li>
+                <b>Q3</b>
+                <div>
+                  <p class="question">既然你们也是从4S店拿车，那我为什么不直接去4S店买车？</p>
+                  <p class="answer">您当然可以直接去4S店买车，但是第一，我们网站有300家4S店的库存资源，您买车不可能跑遍全上海，车源上，我们比全上海车源最丰富的4S店还有优势。第二，我们和4S店是签包销协议，走的都是批发渠道，价格我们也有优势。更不用说我们可以提供一条龙的上门服务，所有流程手续您在家好好享受周末就可以办理，不用工作时间请假去4S店排队（4S店财务周末不上班，所有和钱相关的流程手续必须工作日办理）。</p>
+                </div>
+              </li>
+              <li>
+                <b>Q4</b>
+                <div>
+                  <p class="question">你们和团购有什么区别？</p>
+                  <p class="answer">有本质的区别，首先团购是靠人数去压价，但成交量是不确定的，所以每次团购价格都是有高有低，（例如今年的双十一，别克厂方在天猫上靠团购卖了2000台凯越轿车，但提车率不足10%，就是因为这次的团购都有提车的附加条件）；而好买车网站是靠每月稳定的包销的销量压低进货价，就像京东的自营商品，价格实惠，品质又有保障，我们是把所有的4S店的资源掌握了再去找合适的车主；其次团购的车型数量少，会让用户去买精装车，我们可以卖裸车；再次，团购有附加的费用，如今已经被包装成打包价，消费很不透明，我们的运营成本低，没有店面，不会有额外的费用产生；</p>
+                </div>
+              </li>
+              <li>
+                <b>Q5</b>
+                <div>
+                  <p class="question">您们和二级经销商有什么区别？</p>
+                  <p class="answer">二级经销商其实传统意义叫中介，黄牛，他们其实是二道贩子，先找到用户，再拿用户的需求去找车。但我们直销做的更彻底，我们自建平台，与上海300多家合作经销商共享资源， 我们效率更高，成本更低。所以经销商的收费肯定没有我们便宜，而且我们更保险，经销商可能会出现今天买车明天不见人的情况，但我们花那么大精力做平台，线下签了300多家4S店，不论是从规模还是实力上，我们都比经销商强太多。最后，我们的服务人员比经销商更专业，我们所有线下销售顾问都是高薪从4S店挖来的销售，起码都有4年上的服务经验，可以帮您搞定汽车环节的所有问题。</p>
+                </div>
+              </li>
+              <li>
+                <b>Q6</b>
+                <div>
+                  <p class="question">如果在你们平台买车，合同是和谁签呢？</p>
+                  <p class="answer">购车时合同是和我们好买车网站签，我们已经与发货4S店协商好，由他们提供发票，敲的也是发货4S店的公章。这么做也是为了让您放心，保证您以后的三包和质保没有任何问题，我们会在您交全款的时候带您去4S店的。</p>
+                </div>
+              </li>
+              <li>
+                <b>Q7</b>
+                <div>
+                  <p class="question">在你们这里买车，售后和质保的问题怎么解决？</p>
+                  <p class="answer">我们所有销售车辆均由4S店供货，都有详细的三包凭证，质保和售后可以找供货4S店，当然如果需要我们帮助，也可以代为联系，购车结束之后，我们会给到您双重保障，我们可以针对您购买的品牌，在全上海搜索距离最近或价格最优的专营店供选择。售后服务我们为您保驾护航，您可以直接去供货的4S店保养维修，如果您对他家的服务不满意，我们可以另行推荐直到您满意为止，并终生提供服务。</p>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <%include modules/popup/purchase.ejs%>
+  <% include common/common_footer.ejs %>
+  </body>
+</html>

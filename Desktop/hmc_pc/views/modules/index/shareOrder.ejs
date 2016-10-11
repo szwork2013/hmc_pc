@@ -1,0 +1,21 @@
+<% var timelines = userInfo.timelines %>
+<ol>
+    <% for(var i = 0;i < timelines.length;i++){ %>
+        <li>
+            <span class="track_time"><%- getDate(timelines[i].timelineTime) %></span>
+            <div class="user_info <%if(timelines[i].timelineType=="签单" || timelines[i].timelineType=="提车"){%>active<%}%>">
+                <span class="track_circle"><i></i></span>
+                <span class="track_type"><%-timelines[i].timelineType%></span>
+                <span class="track_content"><%- timelines[i].timelineContent %></span><br>
+                <!--<span class="track_line"></span>-->
+                <%if(timelines[i].images){%>
+                    <div class="track_image">
+                        <% for(var j = 0;j < timelines[i].images.length;j++){ %>
+                        <img src="<%- timelines[i].images[j].imageUrl %>">
+                        <% } %>
+                    </div>
+                <%}%>
+            </div>
+        </li>
+    <% } %>
+</ol>

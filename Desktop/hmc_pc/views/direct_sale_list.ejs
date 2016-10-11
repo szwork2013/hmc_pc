@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>好买车</title>
+    <link href="/style/direct_sale_list.css" rel="stylesheet" />
+</head>
+<body>
+<% include common/common_header.ejs %>
+  <div class="banner">
+      <div class="banner_wrap">
+          <ul class="banner_list">
+              <%for(var i=0;i<topBanner.length;i++){%>
+                  <li><a href="<%-topBanner[i].advertLink%>"><img src="<%-topBanner[i].advertPic%>"/></a></li>
+              <%}%>
+          </ul>
+          <div class="banner_btn">
+              <%for(var i=0;i<topBanner.length;i++){%>
+              <a <%if(i==0){%>class="active"<%}%> href="javascript:;"></a>
+              <%}%>
+          </div>
+          <i class="banner_close"></i>
+      </div>
+  </div>
+  <div class="wrap nav_link">
+      <a href="/">首页&nbsp;&nbsp;></a>
+      <a href="javascript:;">好买车自营</a>
+  </div>
+  <div class="clearfix carList">
+      <div class="carList_cont fl">
+          <div class="carList_cat">
+              <h4>品牌筛选</h4>
+              <ul class="carList_menu" id="brandMenu">
+                  <li data-brandid="" <%if(modelBrandId=="carBrand"){%>class="active"<%}%>><a href="/direct_sale_list/carBrand/<%-modelTypeId%>/<%-modelMinPrice%>/<%-modelMaxPrice%>/<%-desc_type%>">全部</a> </li>
+                  <%for(var i=0;i<brandList.length;i++){%>
+                   <li data-brandid="<%-brandList[i].brandId%>" <%if(modelBrandId==brandList[i].brandId){%>class="active"<%}%> ><a href="/direct_sale_list/<%-brandList[i].brandId%>/<%-modelTypeId%>/<%-modelMinPrice%>/<%-modelMaxPrice%>/<%-desc_type%>"><%-brandList[i].brandName%></a> </li>
+                  <%}%>
+              </ul>
+          </div>
+          <div class="carList_cat">
+              <h4>车型筛选</h4>
+              <ul class="carList_menu" id="modelMenu">
+                  <%for(var i=0;i<carModelList.length;i++){%>
+                    <li <%if(carModelList[i].modelTypeId==modelTypeId){%>class="active"<%}%>><a href="/direct_sale_list/<%-modelBrandId%>/<%-carModelList[i].modelTypeId%>/<%-modelMinPrice%>/<%-modelMaxPrice%>/<%-desc_type%>"><%-carModelList[i].name%></a> </li>
+                  <%}%>
+              </ul>
+          </div>
+          <div class="carList_cat">
+              <h4>价格筛选</h4>
+              <ul class="carList_menu" id="priceMenu">
+                  <li  <%if(modelMinPrice==0 && modelMaxPrice==-1){%>class="active"<%}%>><a href="/direct_sale_list/<%-modelBrandId%>/<%-modelTypeId%>/<%-"minPrice"%>/<%-"maxPrice"%>/<%-desc_type%>">全部</a> </li>
+                  <%for(var i=0;i<priceList.length;i++){%>
+                    <li <%if(modelMinPrice==priceList[i].minPrice && modelMaxPrice==priceList[i].maxPrice){%>class="active"<%}%>><a href="/direct_sale_list/<%-modelBrandId%>/<%-modelTypeId%>/<%-priceList[i].minPrice%>/<%-priceList[i].maxPrice%>/<%-desc_type%>"><%if(i==priceList.length-1){%><%-priceList[i].minPrice/10000%>万以上<%}else{%><%-priceList[i].minPrice/10000%>-<%-priceList[i].maxPrice/10000%>万<%}%></a> </li>
+                  <%}%>
+              </ul>
+          </div>
+      </div>
+      <div class="carList_pic fr">
+        <div class="carList_sort">
+            <a <%if(desc_type=="1"){%>class="active"<%}%> href="/direct_sale_list/<%-modelBrandId%>/<%-modelTypeId%>/<%-modelMinPrice%>/<%-modelMaxPrice%>/<%-1%>">价格从低到高 ↑</a>
+            <a <%if(desc_type=="0"){%>class="active"<%}%> href="/direct_sale_list/<%-modelBrandId%>/<%-modelTypeId%>/<%-modelMinPrice%>/<%-modelMaxPrice%>/<%-0%>">价格从高到低 ↓</a>
+        </div>
+        <ul class="carList_model" id="carListModel">
+          <% include modules/saleList/carList.ejs %>
+        </ul>
+            <div class="carList_more" <%if(saleList.recordList.length==0){%>style="display:none"<%}%>>
+                <a href="javascript:;">查看更多</a>
+            </div>
+            <div class="carList_empty" <%if(saleList.recordList.length==0){%>style="display:block"<%}%>>
+                <a href="javascript:;">没有更多数据</a>
+            </div>
+        <div class="clearfix purchasing">
+            <img src="/images/index/purchasing_bg.png"/>
+            <div class="purchasing_des fl">
+                <p>没有中意的车型？价格不够低？嫌砍价太麻烦？</p>
+                <span>找好买车专业服务顾问帮您淘一辆底价现车吧></span>
+            </div>
+            <a href="javascript:;" class="purchasing_btn">好买车代购</a>
+        </div>
+      </div>
+  </div>
+  <%include modules/popup/purchase.ejs%>
+  <%include common/common_footer.ejs%>
+  <script type="text/javascript">
+      window.template=<%-JSON.stringify(template)%>;
+  </script>
+<script src="/js/lib/require.js" data-main="/js/direct_sale_list"></script>
+</body>
+</html>

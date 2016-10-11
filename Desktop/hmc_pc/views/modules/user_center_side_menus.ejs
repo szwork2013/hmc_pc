@@ -1,0 +1,43 @@
+<div class="">
+  <dl>
+    <dt>账户信息</dt>
+    <dd>
+      <% if(currentMenu == 'my_info'){ %>
+        <a class="active">我的信息</a>
+      <% }else{ %>
+        <a href="/user_center/123/my_info">我的信息</a>
+      <% } %>
+    </dd>
+    <dd>
+      <% if(currentMenu == 'my_subscription'){ %>
+        <a class="active">我的订阅</a>
+      <% }else{ %>
+        <a href="/user_center/123/my_subscription">我的订阅</a>
+      <% } %>
+    </dd>
+    <dd>
+      <% if(currentMenu == 'my_favorite'){ %>
+        <a class="active">我的收藏</a>
+      <% }else{ %>
+        <a href="/user_center/123/my_favorite">我的收藏</a>
+      <% } %>
+    </dd>
+  </dl>
+  <dl>
+    <dt>订单中心</dt>
+    <dd>
+      <% if(currentMenu == 'my_inquire_list'){ %>
+        <a class="active">报价单</a>
+      <% }else{ %>
+        <a href="/user_center/123/my_inquire_list">报价单</a>
+      <% } %>
+    </dd>
+    <dd>
+      <% if(currentMenu == 'my_direct_sale_list'){ %>
+        <a href="#" class="active">订单</a>
+      <% }else{ %>
+        <a href="/user_center/123/my_direct_sale_list">订单</a>
+      <% } %>
+    </dd>
+  </dl>
+</div>
